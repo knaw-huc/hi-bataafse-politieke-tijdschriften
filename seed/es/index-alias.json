@@ -1,0 +1,8 @@
+{
+  "actions": [
+    { "add": { "index": "hi-ga-politieke-tijdschriften-personen", "alias": "hi-ga-politieke-tijdschriften" } },
+    { "add": { "index": "hi-ga-politieke-tijdschriften-plaatsnaam", "alias": "hi-ga-politieke-tijdschriften" } },
+    { "add": { "index": "hi-ga-politieke-tijdschriften-tijdschriften", "alias": "hi-ga-politieke-tijdschriften" } },
+    { "add": { "index": "hi-ga-politieke-tijdschriften-uitgever_drukker", "alias": "hi-ga-politieke-tijdschriften" } }
+  ]
+}
