@@ -78,7 +78,7 @@ SHEET_ORDER = [
 
 # ============================ OUTPUT CONFIG =====================================
 WRITE_ONE_FILE_PER_ROW = True
-OUT_DIR = Path("json-files-resolved-v1")
+OUT_DIR = Path("json-files-resolved")
 
 es = Elasticsearch(hosts=["http://localhost:9200"])
 
