@@ -1,0 +1,20 @@
+{
+  "rowId": 5,
+  "Uitgever_ID_nieuw": "U00207",
+  "Uitgeverij": "Pieter Arkesteyn",
+  "Plaats1_opmerking": "Orthestraat, 's-Hrtogenbosch",
+  "Politiek signatuur": "",
+  "Bestaan": "1795 - 1800",
+  "Plaats1": {
+    "id": "PL00001",
+    "rowId": 1,
+    "name": "'s-Hertogenbosch",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.69917,
+    "Longitude": 5.30417,
+    "GeoNames_uri": "http://sws.geonames.org/2747351/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

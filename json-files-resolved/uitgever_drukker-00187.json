@@ -1,0 +1,20 @@
+{
+  "rowId": 187,
+  "Uitgever_ID_nieuw": "U00026",
+  "Uitgeverij": "J. Breebaart",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00017",
+    "rowId": 17,
+    "name": "Hoorn",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.64312,
+    "Longitude": 5.05779,
+    "GeoNames_uri": "http://sws.geonames.org/2753635/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

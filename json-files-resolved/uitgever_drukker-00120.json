@@ -1,0 +1,20 @@
+{
+  "rowId": 120,
+  "Uitgever_ID_nieuw": "U00093",
+  "Uitgeverij": "Huisman",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00012",
+    "rowId": 12,
+    "name": "Goes",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.50417,
+    "Longitude": 3.88889,
+    "GeoNames_uri": "http://sws.geonames.org/2755476/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

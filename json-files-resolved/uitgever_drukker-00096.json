@@ -1,0 +1,20 @@
+{
+  "rowId": 96,
+  "Uitgever_ID_nieuw": "U00117",
+  "Uitgeverij": "Philippus van Leeuwen (jr.)",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1787-1796",
+  "Plaats1": {
+    "id": "PL00003",
+    "rowId": 3,
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.37302,
+    "Longitude": 4.89856,
+    "GeoNames_uri": "http://sws.geonames.org/2759793/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

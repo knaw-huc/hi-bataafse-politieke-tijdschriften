@@ -1,0 +1,20 @@
+{
+  "rowId": 92,
+  "Uitgever_ID_nieuw": "U00121",
+  "Uitgeverij": "Loosjes",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1783—1803",
+  "Plaats1": {
+    "id": "PL00016",
+    "rowId": 16,
+    "name": "Haarlem",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.38084,
+    "Longitude": 4.63683,
+    "GeoNames_uri": "http://sws.geonames.org/2755003/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

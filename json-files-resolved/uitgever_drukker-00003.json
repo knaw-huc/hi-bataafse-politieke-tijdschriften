@@ -1,0 +1,20 @@
+{
+  "rowId": 3,
+  "Uitgever_ID_nieuw": "U00209",
+  "Uitgeverij": "Jan Greeven",
+  "Plaats1_opmerking": "Voortzetting van Verlem en comp., Warmoesstraat",
+  "Politiek signatuur": "",
+  "Bestaan": "1799 - 1800",
+  "Plaats1": {
+    "id": "PL00003",
+    "rowId": 3,
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.37302,
+    "Longitude": 4.89856,
+    "GeoNames_uri": "http://sws.geonames.org/2759793/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

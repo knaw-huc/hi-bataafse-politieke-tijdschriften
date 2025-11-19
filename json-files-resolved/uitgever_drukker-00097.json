@@ -1,0 +1,38 @@
+{
+  "rowId": 97,
+  "Uitgever_ID_nieuw": "U00116",
+  "Uitgeverij": "Jan de Leeuw",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1774-18xx",
+  "Plaats1": {
+    "id": "PL00025",
+    "rowId": 25,
+    "name": "Rotterdam",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.88246,
+    "Longitude": 4.28784,
+    "GeoNames_uri": "http://sws.geonames.org/2747890/"
+  },
+  "Plaats2": {
+    "id": "PL00010",
+    "rowId": 10,
+    "name": "Dordrecht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.81,
+    "Longitude": 4.67361,
+    "GeoNames_uri": "http://sws.geonames.org/2756669/"
+  },
+  "Plaats3": {
+    "id": "PL00027",
+    "rowId": 27,
+    "name": "Utrecht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.09083,
+    "Longitude": 5.12222,
+    "GeoNames_uri": "http://sws.geonames.org/2745912/"
+  }
+}

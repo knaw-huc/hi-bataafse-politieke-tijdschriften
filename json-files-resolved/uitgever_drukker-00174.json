@@ -1,0 +1,20 @@
+{
+  "rowId": 174,
+  "Uitgever_ID_nieuw": "U00039",
+  "Uitgeverij": "Wed. J(saac?) van Campen",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00024",
+    "rowId": 24,
+    "name": "Nijmegen",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.8425,
+    "Longitude": 5.85278,
+    "GeoNames_uri": "http://sws.geonames.org/2750053/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

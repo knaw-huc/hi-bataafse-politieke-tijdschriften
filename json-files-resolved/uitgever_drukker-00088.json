@@ -1,0 +1,20 @@
+{
+  "rowId": 88,
+  "Uitgever_ID_nieuw": "U00125",
+  "Uitgeverij": "Jan Meijer",
+  "Plaats1_opmerking": "Hoogstraat (1786) Papensteeg (1787)",
+  "Politiek signatuur": "",
+  "Bestaan": "1786-1800",
+  "Plaats1": {
+    "id": "PL00025",
+    "rowId": 25,
+    "name": "Rotterdam",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.88246,
+    "Longitude": 4.28784,
+    "GeoNames_uri": "http://sws.geonames.org/2747890/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

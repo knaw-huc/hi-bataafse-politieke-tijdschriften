@@ -1,0 +1,38 @@
+{
+  "rowId": 78,
+  "Uitgever_ID_nieuw": "U00135",
+  "Uitgeverij": "Johannes Olivier",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "organgist",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00027",
+    "rowId": 27,
+    "name": "Utrecht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.09083,
+    "Longitude": 5.12222,
+    "GeoNames_uri": "http://sws.geonames.org/2745912/"
+  },
+  "Plaats2": {
+    "id": "PL00030",
+    "rowId": 30,
+    "name": "Zaltbommel",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.81,
+    "Longitude": 5.24444,
+    "GeoNames_uri": "http://sws.geonames.org/2744102/"
+  },
+  "Plaats3": {
+    "id": "PL00027",
+    "rowId": 27,
+    "name": "Utrecht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.09083,
+    "Longitude": 5.12222,
+    "GeoNames_uri": "http://sws.geonames.org/2745912/"
+  }
+}

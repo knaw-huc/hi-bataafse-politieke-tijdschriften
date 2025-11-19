@@ -1,0 +1,20 @@
+{
+  "rowId": 26,
+  "Uitgever_ID_nieuw": "U00187",
+  "Uitgeverij": "Machiel Adriaan van der Wal",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1793—1800",
+  "Plaats1": {
+    "id": "PL00019",
+    "rowId": 19,
+    "name": "Leeuwarden",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 53.20139,
+    "Longitude": 5.80859,
+    "GeoNames_uri": "http://sws.geonames.org/2751792/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

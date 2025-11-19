@@ -1,0 +1,20 @@
+{
+  "rowId": 93,
+  "Uitgever_ID_nieuw": "U00120",
+  "Uitgeverij": "Lion",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00001",
+    "rowId": 1,
+    "name": "'s-Hertogenbosch",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.69917,
+    "Longitude": 5.30417,
+    "GeoNames_uri": "http://sws.geonames.org/2747351/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

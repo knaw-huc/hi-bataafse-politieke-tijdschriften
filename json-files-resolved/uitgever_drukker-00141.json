@@ -1,0 +1,20 @@
+{
+  "rowId": 141,
+  "Uitgever_ID_nieuw": "U00072",
+  "Uitgeverij": "Jannes van Groenenbergh",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1783-1794",
+  "Plaats1": {
+    "id": "PL00015",
+    "rowId": 15,
+    "name": "Groningen",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 53.21917,
+    "Longitude": 6.56667,
+    "GeoNames_uri": "http://sws.geonames.org/2755251/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

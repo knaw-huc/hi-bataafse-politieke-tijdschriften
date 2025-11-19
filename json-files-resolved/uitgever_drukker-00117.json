@@ -1,0 +1,20 @@
+{
+  "rowId": 117,
+  "Uitgever_ID_nieuw": "U00096",
+  "Uitgeverij": "Johannes Tilmanus van Gulpen",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1776—1795",
+  "Plaats1": {
+    "id": "PL00021",
+    "rowId": 21,
+    "name": "Maastricht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 50.84833,
+    "Longitude": 5.68889,
+    "GeoNames_uri": "http://sws.geonames.org/2751283/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

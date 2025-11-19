@@ -1,0 +1,20 @@
+{
+  "rowId": 209,
+  "Uitgever_ID_nieuw": "U00004",
+  "Uitgeverij": "H. van A(a)ken",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1794-18..",
+  "Plaats1": {
+    "id": "PL00029",
+    "rowId": 29,
+    "name": "Zaandam",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.43854,
+    "Longitude": 4.82643,
+    "GeoNames_uri": "http://sws.geonames.org/2744118/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

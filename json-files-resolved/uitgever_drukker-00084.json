@@ -1,0 +1,20 @@
+{
+  "rowId": 84,
+  "Uitgever_ID_nieuw": "U00129",
+  "Uitgeverij": "Cornelis Molkman",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00002",
+    "rowId": 2,
+    "name": "Alkmaar",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.63167,
+    "Longitude": 4.74861,
+    "GeoNames_uri": "http://sws.geonames.org/2759899/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

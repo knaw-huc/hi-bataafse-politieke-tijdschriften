@@ -1,0 +1,20 @@
+{
+  "rowId": 130,
+  "Uitgever_ID_nieuw": "U00083",
+  "Uitgeverij": "Leonard Herdingh",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1774-18..",
+  "Plaats1": {
+    "id": "PL00020",
+    "rowId": 20,
+    "name": "Leiden",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.15833,
+    "Longitude": 4.49306,
+    "GeoNames_uri": "http://sws.geonames.org/2751773/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

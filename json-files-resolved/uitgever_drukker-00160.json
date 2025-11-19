@@ -1,0 +1,20 @@
+{
+  "rowId": 160,
+  "Uitgever_ID_nieuw": "U00053",
+  "Uitgeverij": "A. van Dieren",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "",
+  "Plaats1": {
+    "id": "PL00014",
+    "rowId": 14,
+    "name": "Grave",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.75902,
+    "Longitude": 5.73882,
+    "GeoNames_uri": "http://sws.geonames.org/2755358/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

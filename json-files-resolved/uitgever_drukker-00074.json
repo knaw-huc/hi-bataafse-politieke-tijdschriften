@@ -1,0 +1,20 @@
+{
+  "rowId": 74,
+  "Uitgever_ID_nieuw": "U00139",
+  "Uitgeverij": "Palier",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1796—1802",
+  "Plaats1": {
+    "id": "PL00001",
+    "rowId": 1,
+    "name": "'s-Hertogenbosch",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.69917,
+    "Longitude": 5.30417,
+    "GeoNames_uri": "http://sws.geonames.org/2747351/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

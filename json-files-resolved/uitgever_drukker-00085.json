@@ -1,0 +1,20 @@
+{
+  "rowId": 85,
+  "Uitgever_ID_nieuw": "U00128",
+  "Uitgeverij": "J.D. Möllenkamp",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1801",
+  "Plaats1": {
+    "id": "PL00007",
+    "rowId": 7,
+    "name": "Burgsteinfurt",
+    "country": "Germany",
+    "country_GeoNames": "DE",
+    "Latitude": 52.14839,
+    "Longitude": 7.33307,
+    "GeoNames_uri": "http://sws.geonames.org/2941103/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

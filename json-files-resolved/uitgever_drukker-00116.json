@@ -1,0 +1,20 @@
+{
+  "rowId": 116,
+  "Uitgever_ID_nieuw": "U00097",
+  "Uitgeverij": "Willem Alexander Keel",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1782-1800",
+  "Plaats1": {
+    "id": "PL00023",
+    "rowId": 23,
+    "name": "Middelburg",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.5,
+    "Longitude": 3.61389,
+    "GeoNames_uri": "http://sws.geonames.org/2750896/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

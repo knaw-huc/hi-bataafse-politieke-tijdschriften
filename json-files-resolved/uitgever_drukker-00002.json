@@ -1,0 +1,20 @@
+{
+  "rowId": 2,
+  "Uitgever_ID_nieuw": "U00210",
+  "Uitgeverij": "Jan Bool jr.",
+  "Plaats1_opmerking": "Hoogstraat, Den Haag",
+  "Politiek signatuur": "",
+  "Bestaan": "1790 - 1798",
+  "Plaats1": {
+    "id": "PL00009",
+    "rowId": 9,
+    "name": "Den Haag",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.07667,
+    "Longitude": 4.29861,
+    "GeoNames_uri": "http://sws.geonames.org/2747373/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

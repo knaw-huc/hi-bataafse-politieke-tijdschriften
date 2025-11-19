@@ -1,0 +1,20 @@
+{
+  "rowId": 81,
+  "Uitgever_ID_nieuw": "U00132",
+  "Uitgeverij": "Jan Mulder",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1795-1798",
+  "Plaats1": {
+    "id": "PL00027",
+    "rowId": 27,
+    "name": "Utrecht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.09083,
+    "Longitude": 5.12222,
+    "GeoNames_uri": "http://sws.geonames.org/2745912/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

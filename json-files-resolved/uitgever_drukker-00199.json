@@ -1,0 +1,20 @@
+{
+  "rowId": 199,
+  "Uitgever_ID_nieuw": "U00014",
+  "Uitgeverij": "Willem van Bergen",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1784-18..",
+  "Plaats1": {
+    "id": "PL00006",
+    "rowId": 6,
+    "name": "Breda",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.58656,
+    "Longitude": 4.77596,
+    "GeoNames_uri": "http://sws.geonames.org/2758401/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

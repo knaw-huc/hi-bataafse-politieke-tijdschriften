@@ -1,0 +1,20 @@
+{
+  "rowId": 32,
+  "Uitgever_ID_nieuw": "U00181",
+  "Uitgeverij": "Johan Carel Vieweg",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1800—1813",
+  "Plaats1": {
+    "id": "PL00024",
+    "rowId": 24,
+    "name": "Nijmegen",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.8425,
+    "Longitude": 5.85278,
+    "GeoNames_uri": "http://sws.geonames.org/2750053/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

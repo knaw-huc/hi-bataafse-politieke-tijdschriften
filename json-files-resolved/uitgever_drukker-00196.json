@@ -1,0 +1,20 @@
+{
+  "rowId": 196,
+  "Uitgever_ID_nieuw": "U00017",
+  "Uitgeverij": "Blussé, Abraham (en Zn.)",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1748-1808",
+  "Plaats1": {
+    "id": "PL00010",
+    "rowId": 10,
+    "name": "Dordrecht",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 51.81,
+    "Longitude": 4.67361,
+    "GeoNames_uri": "http://sws.geonames.org/2756669/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

@@ -1,0 +1,20 @@
+{
+  "rowId": 48,
+  "Uitgever_ID_nieuw": "U00165",
+  "Uitgeverij": "H.C. Susan",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "organgist",
+  "Bestaan": "Incl zoon zeker tot 1890",
+  "Plaats1": {
+    "id": "PL00009",
+    "rowId": 9,
+    "name": "Den Haag",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.07667,
+    "Longitude": 4.29861,
+    "GeoNames_uri": "http://sws.geonames.org/2747373/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}

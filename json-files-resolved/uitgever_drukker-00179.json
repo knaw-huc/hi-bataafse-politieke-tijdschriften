@@ -1,0 +1,20 @@
+{
+  "rowId": 179,
+  "Uitgever_ID_nieuw": "U00034",
+  "Uitgeverij": "Hanso Leemstra van Buma en comp.",
+  "Plaats1_opmerking": "",
+  "Politiek signatuur": "",
+  "Bestaan": "1793-1798",
+  "Plaats1": {
+    "id": "PL00013",
+    "rowId": 13,
+    "name": "Gouda",
+    "country": "Netherlands",
+    "country_GeoNames": "NL",
+    "Latitude": 52.01667,
+    "Longitude": 4.70833,
+    "GeoNames_uri": "http://sws.geonames.org/2755420/"
+  },
+  "Plaats2": null,
+  "Plaats3": null
+}
