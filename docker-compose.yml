@@ -38,18 +38,20 @@ services:
     networks:
       - pol-tijdschriften
 
-  es-init:
-    image: curlimages/curl:latest
-    container_name: panoptes-es-init
-    depends_on:
-      elastic: { condition: service_healthy }
-    volumes:
-      - ./seed/es:/seed:ro
-      - ./seed/es/es-init.sh:/usr/local/bin/es-init.sh:ro
-    entrypoint: ["/bin/sh","/usr/local/bin/es-init.sh"]
-    restart: "no"
-    networks:
-      - pol-tijdschriften
+  # Use this if you want to seed the Elasticsearch database with data
+  #
+  # es-init:
+  #   image: curlimages/curl:latest
+  #   container_name: panoptes-es-init
+  #   depends_on:
+  #     elastic: { condition: service_healthy }
+  #   volumes:
+  #     - ./seed/es:/seed:ro
+  #     - ./seed/es/es-init.sh:/usr/local/bin/es-init.sh:ro
+  #   entrypoint: ["/bin/sh","/usr/local/bin/es-init.sh"]
+  #   restart: "no"
+  #   networks:
+  #     - pol-tijdschriften
 
   panoptes:
     container_name: panoptes-api
@@ -65,8 +67,8 @@ services:
         condition: service_healthy
       elastic:
         condition: service_healthy
-      es-init:
-        condition: service_completed_successfully
+      #es-init:
+      #  condition: service_completed_successfully
     ports:
       - "8000:8000"
     networks:

@@ -1,4 +1,0 @@
-{ "index": { "_index": "acme_corpus_v1", "_id": "acme-1" } }
-{ "id":"acme-1", "title":"Sample CMDI Record", "abstract":"A demo record for Panoptes.", "keywords":["demo","cmdi"], "creator":"Jane Doe", "language":"en", "year":1955 }
-{ "index": { "_index": "acme_corpus_v1", "_id": "acme-2" } }
-{ "id":"acme-2", "title":"Another Record", "abstract":"Elasticsearch + Mongo seed", "keywords":["seed","search"], "creator":"John Smith", "language":"nl", "year":2001 }

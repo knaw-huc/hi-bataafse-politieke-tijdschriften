@@ -338,7 +338,7 @@ def excel_sheet_to_json(
 
 def import_index(sheet: str, es_client: Elasticsearch) -> None:
     """Import JSON files for a sheet into Elasticsearch if config exists."""
-    es_index_name = f"hi-ga-politieke-tijdschriften-{sheet.lower()}"
+    es_index_name = f"hi-ga-tijdschriften-{sheet.lower()}"
     cfg = f"indexer-{sheet.lower()}-config.toml"
     pattern = f"{OUT_DIR}/{sheet.lower()}-*.json"
 
@@ -398,8 +398,8 @@ if __name__ == "__main__":
         combined_buffer[sheet] = cleaned
 
     # Import ES for each processed sheet, honoring the same order
-    #for sheet in targets:
-    #    import_index(sheet, es)
+    for sheet in targets:
+        import_index(sheet, es)
 
     # After *all* processing is complete, optionally write one combined file for a single sheet
     if single_out:
