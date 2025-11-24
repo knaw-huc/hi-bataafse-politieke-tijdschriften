@@ -10,19 +10,19 @@ format="json"
 path="jmes:rowId"
 type="keyword"
 
-[index.facet.personId]
+[index.facet.persoonId]
 path="jmes:ID_def"
 type="text"
 
-[index.facet.personName]
+[index.facet.persoonsNaam]
 path="jmes:Name"
 type="text"
 
-[index.facet.yearOfBirth]
+[index.facet.geboorteJaar]
 path="jmes:geboortejaar"
 type="text"
 
-[index.facet.yearOfDeath]
+[index.facet.sterfJaar]
 path="jmes:sterfjaar"
 type="text"
 
@@ -30,29 +30,26 @@ type="text"
 path="jmes:Bioportaal"
 type="text"
 
-[index.facet.bioNumber]
+[index.facet.bioNummer]
 path="jmes:Bionummer"
 type="text"
 
-[index.facet.politicalPosition]
+[index.facet.politiekePositie]
 path="jmes:\"Politieke positie\""
 type="text"
 
-[index.facet.occupation1]
+[index.facet.beroep1]
 path="jmes:Beroep_1"
 type="text"
 
-[index.facet.occupation1Remark]
+[index.facet.beroep1Opmerking]
 path="jmes:Beroep_1_opmerking"
 type="text"
 
-[index.facet.occupation2]
+[index.facet.beroep2]
 path="jmes:Beroep_2"
 type="text"
 
-[index.facet.occupation3]
+[index.facet.beroep3]
 path="jmes:Beroep_3"
 type="text"
-
-
-

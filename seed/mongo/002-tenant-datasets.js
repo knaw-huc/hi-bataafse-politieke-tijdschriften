@@ -2,7 +2,7 @@ const DATA_TYPE_ELASTIC = "elasticsearch";
 // const DATA_TYPE_CMDI = "cmdi";
 const TENANT_DB = "tenant-a";
 const DATASET_NAME = "politieke-tijdschriften";
-const ES_INDEX = "hi-ga-politieke-tijdschriften";
+const ES_INDEX = "hi-ga-tijdschriften-tijdschriften";
 const DATA_TYPE = DATA_TYPE_ELASTIC;
 
 // if DATA_TYPE === "elasticsearch":

@@ -10,42 +10,42 @@ format="json"
 path="jmes:rowId"
 type="keyword"
 
-[index.facet.publisherId]
+[index.facet.uitgeverId]
 path="jmes:Uitgever_ID_nieuw"
 type="text"
 
-[index.facet.publisher]
+[index.facet.uitgever]
 path="jmes:Uitgeverij"
 type="text"
 
-[index.facet.firstGenerationId]
+[index.facet.eersteGeneratieId]
 path="jmes:Eerste_generatie_ID"
 type="keyword"
 
-[index.facet.secondGenerationId]
+[index.facet.tweedeGeneratieId]
 path="jmes:Tweede_generatie_ID"
 type="keyword"
 
-[index.facet.place1Id]
+[index.facet.plaats1Id]
 path="jmes:Plaats1_ID"
 type="text"
 
-[index.facet.place1Remark]
+[index.facet.plaats1Opmerking]
 path="jmes:Plaats1_opmerking"
 type="text"
 
-[index.facet.place2Id]
+[index.facet.plaats2Id]
 path="jmes:Plaats2_ID"
 type="text"
 
-[index.facet.place3Id]
+[index.facet.plaats3Id]
 path="jmes:Plaats3_ID"
 type="text"
 
-[index.facet.politicalSignature]
+[index.facet.politiekSignatuur]
 path="jmes:\"Politiek signatuur\""
 type="text"
 
-[index.facet.existence]
+[index.facet.bestaan]
 path="jmes:Bestaan"
 type="text"
