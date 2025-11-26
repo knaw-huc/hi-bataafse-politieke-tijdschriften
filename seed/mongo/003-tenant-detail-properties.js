@@ -7,5 +7,5 @@ tenantDb.detail_properties.createIndex({ dataset_name: 1, order: 1 }, { unique: 
 
 tenantDb.detail_properties.deleteMany({ dataset_name: DATASET_NAME });
 tenantDb.detail_properties.insertMany([
-    { dataset_name: DATASET_NAME, name: "description",    type: "list", path: "$",   order: 0 },
+    { dataset_name: DATASET_NAME, name: "description",    type: "list", path: "$",   order: 1 }
 ]);

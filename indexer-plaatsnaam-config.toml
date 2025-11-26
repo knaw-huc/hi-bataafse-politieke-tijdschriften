@@ -12,11 +12,11 @@ type="keyword"
 
 [index.facet.plaatsId]
 path="jmes:Plaats_ID"
-type="text"
+type="keyword"
 
 [index.facet.plaatsnaam]
 path="jmes:name"
-type="text"
+type="keyword"
 
 [index.facet.land]
 path="jmes:country"
@@ -28,11 +28,11 @@ type="text"
 
 [index.facet.breedteGraad]
 path="jmes:Latitude"
-type="number"
+type="float"
 
 [index.facet.lengteGraad]
 path="jmes:Longitude"
-type="number"
+type="float"
 
 [index.facet.geoNameURI]
 path="jmes:GeoNames_uri"

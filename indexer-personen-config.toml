@@ -12,11 +12,11 @@ type="keyword"
 
 [index.facet.persoonId]
 path="jmes:ID_def"
-type="text"
+type="keyword"
 
 [index.facet.persoonsNaam]
 path="jmes:Name"
-type="text"
+type="keyword"
 
 [index.facet.geboorteJaar]
 path="jmes:geboortejaar"
@@ -44,12 +44,12 @@ type="text"
 
 [index.facet.beroep1Opmerking]
 path="jmes:Beroep_1_opmerking"
-type="text"
+type="keyword"
 
 [index.facet.beroep2]
 path="jmes:Beroep_2"
-type="text"
+type="keyword"
 
 [index.facet.beroep3]
 path="jmes:Beroep_3"
-type="text"
+type="keyword"

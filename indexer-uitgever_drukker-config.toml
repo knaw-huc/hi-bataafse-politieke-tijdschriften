@@ -1,6 +1,5 @@
 [index]
 full_text="yes"
-name="tijdschriften-uitgever_drukker"
 record="yes"
 
 [index.input]
@@ -16,30 +15,45 @@ type="text"
 
 [index.facet.uitgever]
 path="jmes:Uitgeverij"
-type="text"
+type="keyword"
 
 [index.facet.eersteGeneratieId]
-path="jmes:Eerste_generatie_ID"
+path="jmes:Eerste_generatie.id"
+type="keyword"
+
+[index.facet.eersteGeneratieNaam]
+path="jmes:Eerste_generatie.Name"
 type="keyword"
 
 [index.facet.tweedeGeneratieId]
-path="jmes:Tweede_generatie_ID"
+path="jmes:Tweede_generatie.id"
+type="keyword"
+
+[index.facet.tweedeGeneratieNaam]
+path="jmes:Tweede_generatie.Name"
 type="keyword"
 
 [index.facet.plaats1Id]
-path="jmes:Plaats1_ID"
-type="text"
+path="jmes:Plaats1.id"
+type="keyword"
 
-[index.facet.plaats1Opmerking]
-path="jmes:Plaats1_opmerking"
-type="text"
+[index.facet.plaats1Naam]
+path="jmes:Plaats1.name"
 
 [index.facet.plaats2Id]
-path="jmes:Plaats2_ID"
+path="jmes:Plaats2.id"
+type="text"
+
+[index.facet.plaats2Naam]
+path="jmes:Plaats2.name"
 type="text"
 
 [index.facet.plaats3Id]
-path="jmes:Plaats3_ID"
+path="jmes:Plaats3.id"
+type="text"
+
+[index.facet.plaats3Naam]
+path="jmes:Plaats3.name"
 type="text"
 
 [index.facet.politiekSignatuur]

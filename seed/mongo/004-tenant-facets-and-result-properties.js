@@ -9,8 +9,8 @@ tenantDb.facets.createIndex({ dataset_name: 1, name: 1 }, { unique: true });
 // type oneOf { "text", "tree", "range" }
 tenantDb.facets.deleteMany({ dataset_name: DATASET_NAME });
 // tenantDb.facets.insertMany([
-//    { dataset_name: DATASET_NAME, name: "Tijdschrift-titel",   property: "title1.keyword", type: "text" },
-// ]);
+//    { dataset_name: DATASET_NAME, name: "Politieke Signatuur", property: "politiekeSignatuur", type: "text" },
+//]);
 
 // ---------- RESULT PROPERTIES ----------
 tenantDb.result_properties.createIndex({ dataset_name: 1, order: 1 }, { unique: true });

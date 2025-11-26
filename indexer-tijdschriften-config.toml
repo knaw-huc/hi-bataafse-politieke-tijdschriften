@@ -1,6 +1,5 @@
 [index]
 full_text="yes"
-name="tijdschriften"
 record="yes"
 
 [index.input]
@@ -34,6 +33,19 @@ type = "keyword"
 path = "jmes:Titel1"
 type = "text"
 
+[index.facet.aanvullendeTitels]
+path = """
+jmes:[
+    { titel: Titel2, vanaf: Titel2_vanaf },
+    { titel: Titel3, vanaf: Titel3_vanaf },
+    { titel: Titel4, vanaf: Titel4_vanaf },
+    { titel: Titel5, vanaf: Titel5_vanaf },
+    { titel: Titel6, vanaf: Titel6_vanaf },
+    { titel: Titel7, vanaf: Titel7_vanaf }
+]
+"""
+type = "nested"
+
 [index.facet.vormTijdschrift]
 path = "jmes:Vorm_Tijdschrift"
 type = "text"
@@ -44,4 +56,16 @@ type = "text"
 
 [index.facet.politiekePositie]
 path = "jmes:\"Politieke-Positie\""
+type = "text"
+
+[index.facet.korteOmschrijvingInhoud]
+path = "jmes:Korte_omschrijving_inhoud"
+type = "text"
+
+[index.facet.verantwoordingSelectie]
+path = "jmes:Verantwoording_selectie"
+type = "text"
+
+[index.facet.toelichtingRedacteurAuteur]
+path = "jmes:\"Toelichting_redacteur-auteur\""
 type = "text"

@@ -46,8 +46,8 @@ from procrustus_indexer import build_indexer
 SEP = ";"  # default delimiter for multi-ID cells
 RELATIONS: Dict[str, List[Dict[str, Any]]] = {
     "Uitgever_Drukker": [
-        {"fk_col": "Eerste_generatie_ID", "ref_sheet": "Personen", "ref_id_col": "ID_def", "as": "Eerste_generatie_ID", "many": False, "drop_fk": True},
-        {"fk_col": "Tweede_generatie_ID", "ref_sheet": "Personen", "ref_id_col": "ID_def", "as": "Tweede_generatie_ID", "many": False, "drop_fk": True},
+        {"fk_col": "Eerste_generatie_ID", "ref_sheet": "Personen", "ref_id_col": "ID_def", "as": "Eerste_generatie", "many": False, "drop_fk": True},
+        {"fk_col": "Tweede_generatie_ID", "ref_sheet": "Personen", "ref_id_col": "ID_def", "as": "Tweede_generatie", "many": False, "drop_fk": True},
         {"fk_col": "Plaats1_ID", "ref_sheet": "Plaatsnaam", "ref_id_col": "Plaats_ID", "as": "Plaats1", "many": False, "drop_fk": True},
         {"fk_col": "Plaats2_ID", "ref_sheet": "Plaatsnaam", "ref_id_col": "Plaats_ID", "as": "Plaats2", "many": False, "drop_fk": True},
         {"fk_col": "Plaats3_ID", "ref_sheet": "Plaatsnaam", "ref_id_col": "Plaats_ID", "as": "Plaats3", "many": False, "drop_fk": True},
@@ -358,27 +358,28 @@ def import_index(sheet: str, es_client: Elasticsearch) -> None:
 
 # ----------------------------------- CLI ---------------------------------------
 
-def _parse_args(argv: List[str]) -> Tuple[str, Optional[str]]:
+def _parse_args(argv: List[str]) -> Tuple[str, Optional[str], Optional[bool]]:
     """Returns (excel_file, sheets_arg)."""
     if len(argv) < 2:
-        print("Usage: python read_and_index.py <excel_file> [sheet_name|A,B,C|ALL]")
+        print("Usage: python read_and_index.py <excel_file> [sheet_name|A,B,C|ALL] [--skip-import]")
         sys.exit(1)
 
     excel_file = argv[1]
     sheets_arg: Optional[str] = None
-    single_out_sheet: Optional[str] = None
+    skip_import: Optional[bool] = False
 
     for arg in argv[2:]:
-        if sheets_arg is None:
+        if arg.strip().lower() == "--skip-import":
+            skip_import = True
+        elif sheets_arg is None:
             sheets_arg = arg.strip()
         else:
-            # ignore extras; add more flags here if needed
             pass
 
-    return excel_file, sheets_arg
+    return excel_file, sheets_arg, skip_import
 
 if __name__ == "__main__":
-    excel_file, sheet_arg = _parse_args(sys.argv)
+    excel_file, sheet_arg, skip_import = _parse_args(sys.argv)
 
     targets = _normalize_targets(excel_file, sheet_arg)
 
@@ -396,7 +397,8 @@ if __name__ == "__main__":
         combined_buffer[sheet] = cleaned
 
     # Import into ES for each processed sheet, honoring the same order
-    for sheet in targets:
-        import_index(sheet, es)
+    if not skip_import:
+        for sheet in targets:
+            import_index(sheet, es)
 
     print(f"Done. Total JSON rows written across {len(targets)} sheet(s): {total_written}")
