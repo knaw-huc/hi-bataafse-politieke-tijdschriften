@@ -34,14 +34,14 @@ path="jmes:Tweede_generatie.Name"
 type="keyword"
 
 [index.facet.plaats1Id]
-path="jmes:Plaats1.id"
+path="jmes:Plaats1.rowId"
 type="keyword"
 
 [index.facet.plaats1Naam]
 path="jmes:Plaats1.name"
 
 [index.facet.plaats2Id]
-path="jmes:Plaats2.id"
+path="jmes:Plaats2.rowId"
 type="text"
 
 [index.facet.plaats2Naam]
@@ -49,7 +49,7 @@ path="jmes:Plaats2.name"
 type="text"
 
 [index.facet.plaats3Id]
-path="jmes:Plaats3.id"
+path="jmes:Plaats3.rowId"
 type="text"
 
 [index.facet.plaats3Naam]

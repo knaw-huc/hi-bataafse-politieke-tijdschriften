@@ -16,7 +16,7 @@ type="keyword"
 
 [index.facet.persoonsNaam]
 path="jmes:Name"
-type="keyword"
+type="text"
 
 [index.facet.geboorteJaar]
 path="jmes:geboortejaar"
@@ -48,8 +48,8 @@ type="keyword"
 
 [index.facet.beroep2]
 path="jmes:Beroep_2"
-type="keyword"
+type="text"
 
 [index.facet.beroep3]
 path="jmes:Beroep_3"
-type="keyword"
+type="text"

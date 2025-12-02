@@ -14,20 +14,24 @@ path = "jmes:Tijdschrift_ID_Nieuw"
 type = "keyword"
 
 [index.facet.uitgeverId]
-path = "jmes:Uitgever.id"
+path = "jmes:Uitgever.rowId"
 type = "keyword"
 
 [index.facet.uitgever]
 path = "jmes:Uitgever.Uitgeverij"
-type = "keyword"
+type = "text"
+
+[index.facet.drukker]
+path = "jmes:Drukker.Uitgeverij"
+type = "text"
 
 [index.facet.plaatsId]
-path = "jmes:Plaats1.id"
+path = "jmes:Plaats1.rowId"
 type = "keyword"
 
 [index.facet.plaats]
 path = "jmes:Plaats1.name"
-type = "keyword"
+type = "text"
 
 [index.facet.titel]
 path = "jmes:Titel1"
@@ -56,6 +60,14 @@ type = "text"
 
 [index.facet.politiekePositie]
 path = "jmes:\"Politieke-Positie\""
+type = "text"
+
+[index.facet.eersteNummerJaar]
+path = "jmes:Eerste_nr_JAAR"
+type = "text"
+
+[index.facet.laatsteNummerJaar]
+path = "jmes:Laatste_nr_JAAR"
 type = "text"
 
 [index.facet.korteOmschrijvingInhoud]

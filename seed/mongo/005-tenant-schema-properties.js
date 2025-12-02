@@ -9,25 +9,37 @@ tenantDb.schema_properties.insertMany([
         dataset_name: DATASET_NAME,
         property: 'titel',
         order: 0,
-        schema: { "type": "string", "format": "uri", "x-ui-widget": "link" }
+        schema: { "type": "string" }
     },
     {
         dataset_name: DATASET_NAME,
         property: 'korteOmschrijvingInhoud',
         order: 0,
-        schema: { "type": "string", "x-ui-widget": "prose" }
+        schema: { "type": "string" }
     },
     {
         dataset_name: DATASET_NAME,
         property: 'uitgever',
         order: 0,
-        schema: { "type": "string", "format": "uitgever" }
+        schema: { "type": "string" }
     },
-     {
+    {
+        dataset_name: DATASET_NAME,
+        property: 'plaatsId',
+        order: 0,
+        schema: { "type": "number", "x-omit": true }
+    },
+    {
+        dataset_name: DATASET_NAME,
+        property: 'uitgeverId',
+        order: 0,
+        schema: { "type": "number", "x-omit": true }
+    },
+    {
         dataset_name: DATASET_NAME,
         property: 'plaats',
         order: 0,
-        schema: { "type": "string", "format": "plaats" }
+        schema: { "type": "string" }
     },
     {
         dataset_name: DATASET_NAME,
@@ -39,30 +51,42 @@ tenantDb.schema_properties.insertMany([
         dataset_name: DATASET_NAME,
         property: 'vormTijdschrift',
         order: 0,
-        schema: { "type": "string", "format": "vorm-tijdschrift"}
+        schema: { "type": "string" }
     },
      {
         dataset_name: DATASET_NAME,
         property: 'typeTijdschrift',
         order: 0,
-        schema: { "type": "string", "format": "type-tijdschrift" }
+        schema: { "type": "string" }
     },
      {
         dataset_name: DATASET_NAME,
         property: 'politiekePositie',
         order: 0,
-        schema: { "type": "string", "format": "politieke-positie" }
+        schema: { "type": "string" }
     },
     {
         dataset_name: DATASET_NAME,
         property: 'verantwoordingSelectie',
         order: 0,
-        schema: { "type": "string", "format": "verantwoording-selectie" }
+        schema: { "type": "string" }
     },
     {
         dataset_name: DATASET_NAME,
         property: 'toelichtingRedacteurAuteur',
         order: 0,
-        schema: { "type": "string", "format": "toelichting-redacteur-auteur" }
-    }
+        schema: { "type": "string" }
+    },
+    {
+        dataset_name: DATASET_NAME,
+        property: 'uitgever',
+        order: 0,
+        schema: { "type": "string", "format": "link", "x-link-to": "politieke-tijdschriften-uitgever_drukker/details/$uitgeverId" }
+    },
+    {
+        dataset_name: DATASET_NAME,
+        property: 'plaats',
+        order: 0,
+        schema: { "type": "string", "format": "link", "x-link-to": "politieke-tijdschriften-plaatsnaam/details/$plaatsId" }
+    },
 ]);

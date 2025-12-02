@@ -16,7 +16,7 @@ type="keyword"
 
 [index.facet.plaatsnaam]
 path="jmes:name"
-type="keyword"
+type="text"
 
 [index.facet.land]
 path="jmes:country"
