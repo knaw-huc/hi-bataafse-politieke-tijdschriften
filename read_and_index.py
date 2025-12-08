@@ -287,7 +287,7 @@ def excel_sheet_to_json(
     df = pd.read_excel(
         excel_path,
         sheet_name=main_sheet,
-        keep_default_na=False,
+        keep_default_na=True,
         dtype_backend="numpy_nullable",
     )
     df = df.astype(object).where(~df.isna(), None)

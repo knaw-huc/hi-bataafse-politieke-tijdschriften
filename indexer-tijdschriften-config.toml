@@ -19,11 +19,11 @@ type = "keyword"
 
 [index.facet.uitgever]
 path = "jmes:Uitgever.Uitgeverij"
-type = "text"
+type = "keyword"
 
 [index.facet.drukker]
 path = "jmes:Drukker.Uitgeverij"
-type = "text"
+type = "keyword"
 
 [index.facet.plaatsId]
 path = "jmes:Plaats1.rowId"
@@ -31,11 +31,11 @@ type = "keyword"
 
 [index.facet.plaats]
 path = "jmes:Plaats1.name"
-type = "text"
+type = "keyword"
 
 [index.facet.titel]
 path = "jmes:Titel1"
-type = "text"
+type = "keyword"
 
 [index.facet.aanvullendeTitels]
 path = """
@@ -52,19 +52,19 @@ type = "nested"
 
 [index.facet.vormTijdschrift]
 path = "jmes:Vorm_Tijdschrift"
-type = "text"
+type = "keyword"
 
 [index.facet.typeTijdschrift]
 path = "jmes:Type_Tijdschrift"
-type = "text"
+type = "keyword"
 
 [index.facet.politiekePositie]
 path = "jmes:\"Politieke-Positie\""
-type = "text"
+type = "keyword"
 
 [index.facet.eersteNummerJaar]
 path = "jmes:Eerste_nr_JAAR"
-type = "text"
+type = "number"
 
 [index.facet.laatsteNummerJaar]
 path = "jmes:Laatste_nr_JAAR"
