@@ -3,50 +3,65 @@ const TENANT_DB = "tenant-a";
 const DATASET_NAME = "politieke-tijdschriften";
 const ES_INDEX = "hi-ga-tijdschriften";
 const DATA_TYPE = DATA_TYPE_ELASTIC;
-const ID_PROPERTY_FOR_ELASTIC = "";
-const BASE_URL_FOR_ELASTIC = "";
 
 const tenantDb = db.getSiblingDB(TENANT_DB);
 
-const dataConfiguration = { id_property: ID_PROPERTY_FOR_ELASTIC, base_url: BASE_URL_FOR_ELASTIC };
+const dataConfiguration = { id_property: "", base_url: "" };
 
 tenantDb.datasets.updateOne(
-    { tenant_name: TENANT_DB, name: DATASET_NAME },
+    {
+        tenant_name: TENANT_DB,
+        name: DATASET_NAME
+    },
     {
         $set: {
             tenant_name: TENANT_DB,
             name: DATASET_NAME,
             es_index: `${ES_INDEX}-tijdschriften`,
             data_type: DATA_TYPE,
-            data_configuration: dataConfiguration,
+            data_configuration: {
+                ...dataConfiguration,
+                home_url: '/politieke-tijdschriften/search'
+            },
             detail_id: "id"
         }
     },
     { upsert: true }
 );
 tenantDb.datasets.updateOne(
-    { tenant_name: TENANT_DB, name: `${DATASET_NAME}-plaatsnaam` },
+    {
+        tenant_name: TENANT_DB,
+        name: `${DATASET_NAME}-plaatsnaam` },
     {
         $set:{
             tenant_name: TENANT_DB,
             name: `${DATASET_NAME}-plaatsnaam`,
             es_index: `${ES_INDEX}-plaatsnaam`,
             data_type: DATA_TYPE,
-            data_configuration: dataConfiguration,
+            data_configuration: {
+                ...dataConfiguration,
+                home_url: `${DATASET_NAME}-plaatsnaam/search`
+            },
             detail_id: "id"
         }
     },
     { upsert: true }
 );
 tenantDb.datasets.updateOne(
-    { tenant_name: TENANT_DB, name: `${DATASET_NAME}-personen` },
+    {
+        tenant_name: TENANT_DB,
+        name: `${DATASET_NAME}-personen`
+    },
     {
         $set:{
             tenant_name: TENANT_DB,
             name: `${DATASET_NAME}-personen`,
             es_index: `${ES_INDEX}-personen`,
             data_type: DATA_TYPE,
-            data_configuration: dataConfiguration,
+            data_configuration: {
+                ...dataConfiguration,
+                home_url: `${DATASET_NAME}-personen/search`
+            },
             detail_id: "id"
         }
     },
@@ -60,7 +75,10 @@ tenantDb.datasets.updateOne(
             name: `${DATASET_NAME}-uitgever_drukker`,
             es_index: `${ES_INDEX}-uitgever_drukker`,
             data_type: DATA_TYPE,
-            data_configuration: dataConfiguration,
+            data_configuration: {
+                ...dataConfiguration,
+                home_url: `${DATASET_NAME}-uitgever_drukker/search`
+            },
             detail_id: "id"
         }
     },
