@@ -40,8 +40,7 @@ services:
 
   panoptes:
     container_name: panoptes-api
-    image: registry.diginfra.net/tsd/panoptes-backend:beta-60
-    platform: linux/amd64
+    image: registry.diginfra.net/tsd/panoptes-backend:schema-additions
     environment:
       - ES_SCHEME=http
       - ES_HOST=elastic
@@ -54,6 +53,16 @@ services:
         condition: service_healthy
     ports:
       - "8000:8000"
+    networks:
+      - pol-tijdschriften
+
+  panoptes-browser:
+    container_name: panoptes-react
+    image: registry.diginfra.net/tsd/panoptes-react:schema-additions
+    environment:
+      - VITE_PANOPTES_URL=http://localhost:8000
+    ports:
+      - "80:80"
     networks:
       - pol-tijdschriften
 
