@@ -10,29 +10,29 @@ format="json"
 path="jmes:rowId"
 type="keyword"
 
-[index.facet.placeId]
+[index.facet.plaatsId]
 path="jmes:Plaats_ID"
-type="text"
+type="keyword"
 
-[index.facet.placeName]
+[index.facet.plaatsnaam]
 path="jmes:name"
 type="text"
 
-[index.facet.country]
+[index.facet.land]
 path="jmes:country"
 type="text"
 
-[index.facet.countryGeoCode]
+[index.facet.landCode]
 path="jmes:country_GeoNames"
 type="text"
 
-[index.facet.latitude]
+[index.facet.breedteGraad]
 path="jmes:Latitude"
-type="number"
+type="float"
 
-[index.facet.longitude]
+[index.facet.lengteGraad]
 path="jmes:Longitude"
-type="number"
+type="float"
 
 [index.facet.geoNameURI]
 path="jmes:GeoNames_uri"

@@ -1,6 +1,5 @@
 [index]
 full_text="yes"
-name="tijdschriften-uitgever_drukker"
 record="yes"
 
 [index.input]
@@ -10,42 +9,57 @@ format="json"
 path="jmes:rowId"
 type="keyword"
 
-[index.facet.publisherId]
+[index.facet.uitgeverId]
 path="jmes:Uitgever_ID_nieuw"
 type="text"
 
-[index.facet.publisher]
+[index.facet.uitgever]
 path="jmes:Uitgeverij"
-type="text"
-
-[index.facet.firstGenerationId]
-path="jmes:Eerste_generatie_ID"
 type="keyword"
 
-[index.facet.secondGenerationId]
-path="jmes:Tweede_generatie_ID"
+[index.facet.eersteGeneratieId]
+path="jmes:Eerste_generatie.id"
 type="keyword"
 
-[index.facet.place1Id]
-path="jmes:Plaats1_ID"
+[index.facet.eersteGeneratieNaam]
+path="jmes:Eerste_generatie.Name"
+type="keyword"
+
+[index.facet.tweedeGeneratieId]
+path="jmes:Tweede_generatie.id"
+type="keyword"
+
+[index.facet.tweedeGeneratieNaam]
+path="jmes:Tweede_generatie.Name"
+type="keyword"
+
+[index.facet.plaats1Id]
+path="jmes:Plaats1.rowId"
+type="keyword"
+
+[index.facet.plaats1Naam]
+path="jmes:Plaats1.name"
+
+[index.facet.plaats2Id]
+path="jmes:Plaats2.rowId"
 type="text"
 
-[index.facet.place1Remark]
-path="jmes:Plaats1_opmerking"
+[index.facet.plaats2Naam]
+path="jmes:Plaats2.name"
 type="text"
 
-[index.facet.place2Id]
-path="jmes:Plaats2_ID"
+[index.facet.plaats3Id]
+path="jmes:Plaats3.rowId"
 type="text"
 
-[index.facet.place3Id]
-path="jmes:Plaats3_ID"
+[index.facet.plaats3Naam]
+path="jmes:Plaats3.name"
 type="text"
 
-[index.facet.politicalSignature]
+[index.facet.politiekSignatuur]
 path="jmes:\"Politiek signatuur\""
 type="text"
 
-[index.facet.existence]
+[index.facet.bestaan]
 path="jmes:Bestaan"
 type="text"
