@@ -41,36 +41,42 @@ The current Docker Compose setup is mainly aimed at development. This spins up a
 
 You can verify the existence of indexes in ElasticSearch by visiting: http://localhost:9200/_cat/indices?format=json
 
+# Getting started with this setup
+
+To get started with this particular setup, you can run the Docker Compose file to start up a:
+
+- ElasticSearch
+- MongoDB
+- Panoptes API (with schema additions)
+- Panoptes browser (with schema additions)
+
+After this, you will still need to run the read_and_index.py Python script to read the Excel data, have this converted to JSON files and have the JSON data be indexed in ElasticSearch with Procrustus. You should be able to run this Python script with:
+
+```poetry run python read_and_index.py Database-Bataafse-Politieke-Tijdschriften.xlsx```
+
+This will index the data in the ElasticSearch container that was started by the Docker Compose. You can verify this with:
+
+```curl http://localhost:9200/_cat/indices?format=json```
+
+This should show you 4 indexes:
+
+- hi-ga-tijdschriften-personen
+- hi-ga-tijdschriften-uitgever_drukker
+- hi-ga-tijdschriften-tijdschriften
+- hi-ga-tijdschriften-plaatsnaam
+
+You should now be able to open the Panoptes browser, by visiting the URL:
+
+```http://localhost/politieke-tijdschriften/search```
+
+This should give you a screen similar to:
+
+![img.png](entry-page.png)
+
 # TODO
 
 - Clean up Procrustus indexer branches. There are several branches with items of work done by different people, and the currently released Procrustus (PyWheel?) is pretty old.
 - Release latest Procrustus version, so other projects and people can use the newer version.
-- We can probably use JMESPath to collect values into objects and arrays, so we probably don't need to spend a lot of time on the Python script for JSON generation. Some examples:
-
-```
-{
-  "Titel1": "Notulen van de landdagen van Gelderland",
-  "Titel2": "Recessen der Geldersche Landdag",
-  "Titel2_vanaf": "",
-  "Titel3": "Recessen des Quartiers van Nijmegen",
-  "Titel3_vanaf": "",
-  "Titel4": "Notulen van de landdagen van het kwartier van Zutphen",
-}
-
-List of titles JMESPath: [Titel1, Titel2, Titel3, Titel4][?@ != null]
-Title object JMESPath: [Titel2, Titel2_vanaf].{ titel: Titel2 || \"\", titel_vanaf: Titel2_vanaf || \"\" }
-
-Index facet configuration then becomes something along the lines of:
-
-[index.facet.titles]
-type="list"
-path="jmes:[Titel1, Titel2, Titel3, Titel4][?@ != null | ?@ != '']"
-
-[index.facet.title2]
-type="object"
-path="jmes:[Titel2, Titel2_vanaf].{ titel: Titel2 || \"\", titel_vanaf: Titel2_vanaf || \"\" }"
-```
-
-The above will require some changes in Procrustus, since the ES index mapping needs to account for objects (arrays should work out of the box).
+- The above will require some changes in Procrustus, since the ES index mapping needs to account for objects (arrays should work out of the box).
 
 - Add generation of the MongoDB configuration for the Panoptes API.

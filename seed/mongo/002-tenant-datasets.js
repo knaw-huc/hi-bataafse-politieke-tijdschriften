@@ -21,7 +21,7 @@ tenantDb.datasets.updateOne(
             data_type: DATA_TYPE,
             data_configuration: {
                 ...dataConfiguration,
-                home_url: '/politieke-tijdschriften/search'
+                home_url: `${DATASET_NAME}/search`
             },
             detail_id: "id"
         }
@@ -60,7 +60,7 @@ tenantDb.datasets.updateOne(
             data_type: DATA_TYPE,
             data_configuration: {
                 ...dataConfiguration,
-                home_url: `${DATASET_NAME}-personen/search`
+                home_url: `/${DATASET_NAME}-personen/search`
             },
             detail_id: "id"
         }
@@ -77,7 +77,7 @@ tenantDb.datasets.updateOne(
             data_type: DATA_TYPE,
             data_configuration: {
                 ...dataConfiguration,
-                home_url: `${DATASET_NAME}-uitgever_drukker/search`
+                home_url: `/${DATASET_NAME}-uitgever_drukker/search`
             },
             detail_id: "id"
         }

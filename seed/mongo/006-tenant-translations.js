@@ -2,7 +2,6 @@ const TENANT_DB = "tenant-a";
 
 const tenantDb = db.getSiblingDB(TENANT_DB);
 
-tenantDb.translations.deleteMany();
 tenantDb.translations.insertMany([
     {
         label_key: 'politieke-tijdschriften',
@@ -42,6 +41,11 @@ tenantDb.translations.insertMany([
     {
         label_key: 'results_list_title',
         label_value: 'Resultaten',
+        locale: 'NL',
+    },
+    {
+        label_key: 'Home',
+        label_value: 'Home',
         locale: 'NL',
     }
 ])
