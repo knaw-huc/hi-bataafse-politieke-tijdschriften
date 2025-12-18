@@ -21,7 +21,7 @@ tenantDb.datasets.updateOne(
             data_type: DATA_TYPE,
             data_configuration: {
                 ...dataConfiguration,
-                home_url: `${DATASET_NAME}/search`
+                home_url: `/${DATASET_NAME}/search`
             },
             detail_id: "id"
         }
@@ -40,7 +40,7 @@ tenantDb.datasets.updateOne(
             data_type: DATA_TYPE,
             data_configuration: {
                 ...dataConfiguration,
-                home_url: `${DATASET_NAME}-plaatsnaam/search`
+                home_url: `/${DATASET_NAME}-plaatsnaam/search`
             },
             detail_id: "id"
         }
