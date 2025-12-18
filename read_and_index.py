@@ -67,6 +67,26 @@ RELATIONS: Dict[str, List[Dict[str, Any]]] = {
     ],
 }
 
+# ============================ BOOLEAN → LABELS CONVERSION ============================
+# These are the boolean columns you showed. We convert them into:
+#   row["vorm"] = ["Nieuwsberichten", ...] (all keys whose value is true)
+VORM_BOOL_KEYS = [
+    "Overige overheidsstukken",
+    "Dialogen",
+    "Satire",
+    "Notulen en handelingen",
+    "Nieuwsberichten",
+    "vorm_Mengelwerk",
+    "Advertenties",
+    "Decreten en proclamaties",
+    "Ingezonden brieven",
+    "Redactionele betogen",
+]
+
+# If you only want this conversion on some sheets, list them here.
+# Set to None to apply to all sheets.
+VORM_SHEETS: Optional[Set[str]] = {"Tijdschriften"}  # change to None to apply everywhere
+
 # ============================ SHEET ORDER CONFIG ================================
 # Process in this order - any requested target sheets keep this relative order.
 SHEET_ORDER = [
@@ -105,6 +125,41 @@ def sanitize(value: Any) -> Any:
         return t if isinstance(value, list) else tuple(t)
 
     return value
+
+def is_truthy_bool(v: Any) -> bool:
+    """
+    Excel → pandas often yields:
+      - bool / numpy.bool_ / pandas nullable booleans
+      - sometimes strings ("TRUE"/"FALSE") depending on how loaded/cast
+    We treat common truthy representations as True.
+    """
+    if v is True:
+        return True
+    if isinstance(v, (np.bool_,)):
+        return bool(v)
+    if isinstance(v, str):
+        return v.strip().lower() in ("true", "1", "yes", "y", "ja")
+    # pandas BooleanDtype can produce <NA> which arrives as None with our df cleanup
+    return False
+
+
+def extract_true_keys(row: Dict[str, Any], keys: List[str]) -> List[str]:
+    return [ k for k in keys if is_truthy_bool(row.get(k)) ]
+
+
+def convert_vorm_booleans(row: Dict[str, Any]) -> None:
+    """
+    Adds:
+      row["artikelType"] = [<labels whose boolean column is true>]
+    Removes:
+      the original boolean columns (optional but enabled here).
+    """
+    selected = extract_true_keys(row, VORM_BOOL_KEYS)
+    row["artikelType"] = [ s.replace('_', ' ').capitalize() for s in selected ]  # always present; [] if none
+
+    # Drop original boolean columns to avoid duplication/noise
+    for k in VORM_BOOL_KEYS:
+        row.pop(k, None)
 
 # ------------------------------ In-memory stores --------------------------------
 # Processed rows, by sheet (already-expanded, sanitized per row at write time).
@@ -202,12 +257,7 @@ def embed_relations_into_records(
         default_sep: str = SEP,
         prefer_processed_refs: bool = True,
 ) -> None:
-    """Mutates `records` in place: replaces FK columns with embedded objects/arrays.
-
-    For each relation, we resolve references via:
-      1) processed in-memory indices (if available and prefer_processed_refs=True)
-      2) otherwise cached raw ref indices from Excel.
-    """
+    """Mutates `records` in place: replaces FK columns with embedded objects/arrays."""
     ref_indices: Dict[Tuple[str, str], Dict[str, Dict[str, Any]]] = {}
     for rel in relations:
         key = (rel["ref_sheet"], rel["ref_id_col"])
@@ -241,22 +291,13 @@ def embed_relations_into_records(
             if drop_fk:
                 row.pop(fk_col, None)
 
-        # prune empty-string fields for cleaner JSON
-        #for k in [k for k, v in row.items() if v == ""]:
-        #    row.pop(k, None)
-
 # ------------------------------ Excel helpers ----------------------------------
 
 def _resolve_all_sheets(excel_path: str) -> List[str]:
     return pd.ExcelFile(excel_path).sheet_names
 
 def _normalize_targets(excel_path: str, sheet_arg: Optional[str]) -> List[str]:
-    """Return target sheet names in ordered form.
-    - None or 'ALL' → all sheets
-    - 'A,B,C' → those sheets
-    - single name → that sheet
-    Order is by SHEET_ORDER first; extras go to the end alphabetically.
-    """
+    """Return target sheet names in ordered form."""
     all_sheets = _resolve_all_sheets(excel_path)
 
     if sheet_arg is None or sheet_arg.strip().upper() == "ALL":
@@ -281,9 +322,7 @@ def excel_sheet_to_json(
         main_sheet: str,
         prefer_processed_refs: bool = True,
 ) -> Tuple[int, List[Dict[str, Any]]]:
-    """Process one sheet: blow up FKs (preferring processed refs), write per-row JSON files.
-    Returns (count written, cleaned_records_for_this_sheet).
-    """
+    """Process one sheet: blow up FKs, convert booleans→labels, write per-row JSON files."""
     df = pd.read_excel(
         excel_path,
         sheet_name=main_sheet,
@@ -305,6 +344,11 @@ def excel_sheet_to_json(
             default_sep=SEP,
             prefer_processed_refs=prefer_processed_refs,
         )
+
+    # Convert boolean columns → "vorm": [labels]
+    if VORM_SHEETS is None or main_sheet in VORM_SHEETS:
+        for row in records:
+            convert_vorm_booleans(row)
 
     # Keep processed (pre-sanitize) records in memory for downstream sheets
     _PROCESSED_SHEETS[main_sheet] = [dict(r) for r in records]
@@ -359,7 +403,7 @@ def import_index(sheet: str, es_client: Elasticsearch) -> None:
 # ----------------------------------- CLI ---------------------------------------
 
 def _parse_args(argv: List[str]) -> Tuple[str, Optional[str], Optional[bool]]:
-    """Returns (excel_file, sheets_arg)."""
+    """Returns (excel_file, sheets_arg, skip_import)."""
     if len(argv) < 2:
         print("Usage: python read_and_index.py <excel_file> [sheet_name|A,B,C|ALL] [--skip-import]")
         sys.exit(1)

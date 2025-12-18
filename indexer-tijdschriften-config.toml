@@ -81,3 +81,7 @@ type = "text"
 [index.facet.toelichtingRedacteurAuteur]
 path = "jmes:\"Toelichting_redacteur-auteur\""
 type = "text"
+
+[index.facet.artikelType]
+path = "jmes:artikelType"
+type = "keyword"

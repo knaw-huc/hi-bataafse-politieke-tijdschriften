@@ -6,11 +6,12 @@ const tenantDb = db.getSiblingDB(TENANT_DB);
 // ---------- FACETS ----------
 tenantDb.facets.deleteMany({ dataset_name: DATASET_NAME });
  tenantDb.facets.insertMany([
+     { dataset_name: DATASET_NAME, name: "Titel", property: "titel", type: "text", order: 0 },
      { dataset_name: DATASET_NAME, name: "Vorm tijdschrift", property: "vormTijdschrift", type: "text", order: 4 },
      { dataset_name: DATASET_NAME, name: "Type tijdschrift", property: "typeTijdschrift", type: "text", order: 5 },
-     { dataset_name: DATASET_NAME, name: "Politieke positie", property: "politiekePositie", type: "text", order: 6 },
-     { dataset_name: DATASET_NAME, name: "Jaar eerste nummer", property: "eersteNummerJaar", type: "range", order: 7 },
-     //{ dataset_name: DATASET_NAME, name: "Titel", property: "titel", type: "text", order: 0 },
+     { dataset_name: DATASET_NAME, name: "Type artikel", property: "artikelType", type: "text", order: 6 },
+     { dataset_name: DATASET_NAME, name: "Politieke positie", property: "politiekePositie", type: "text", order: 7 },
+     { dataset_name: DATASET_NAME, name: "Jaar eerste nummer", property: "eersteNummerJaar", type: "range", order: 8 },
      { dataset_name: DATASET_NAME, name: "Uitgever", property: "uitgever", type: "text", order: 1 },
      { dataset_name: DATASET_NAME, name: "Drukker", property: "drukker", type: "text", order: 2 },
      { dataset_name: DATASET_NAME, name: "Plaats", property: "plaats", type: "text", order: 3 }
