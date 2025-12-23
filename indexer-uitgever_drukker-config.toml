@@ -18,7 +18,7 @@ path="jmes:Uitgeverij"
 type="keyword"
 
 [index.facet.eersteGeneratieId]
-path="jmes:Eerste_generatie.id"
+path="jmes:Eerste_generatie.rowId"
 type="keyword"
 
 [index.facet.eersteGeneratieNaam]
@@ -26,33 +26,33 @@ path="jmes:Eerste_generatie.Name"
 type="keyword"
 
 [index.facet.tweedeGeneratieId]
-path="jmes:Tweede_generatie.id"
+path="jmes:Tweede_generatie.rowId"
 type="keyword"
 
 [index.facet.tweedeGeneratieNaam]
 path="jmes:Tweede_generatie.Name"
 type="keyword"
 
-[index.facet.plaats1Id]
+[index.facet.eerstePlaatsId]
 path="jmes:Plaats1.rowId"
 type="keyword"
 
-[index.facet.plaats1Naam]
+[index.facet.eerstePlaatsNaam]
 path="jmes:Plaats1.name"
 
-[index.facet.plaats2Id]
+[index.facet.tweedePlaatsId]
 path="jmes:Plaats2.rowId"
 type="text"
 
-[index.facet.plaats2Naam]
+[index.facet.tweedePlaatsNaam]
 path="jmes:Plaats2.name"
 type="text"
 
-[index.facet.plaats3Id]
+[index.facet.derdePlaatsId]
 path="jmes:Plaats3.rowId"
 type="text"
 
-[index.facet.plaats3Naam]
+[index.facet.derdePlaatsNaam]
 path="jmes:Plaats3.name"
 type="text"
 

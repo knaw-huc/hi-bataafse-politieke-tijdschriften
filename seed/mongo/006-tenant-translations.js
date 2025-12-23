@@ -44,7 +44,7 @@ tenantDb.translations.insertMany([
         locale: 'NL',
     },
     {
-        label_key: 'Home',
+        label_key: 'home',
         label_value: 'Home',
         locale: 'NL',
     }

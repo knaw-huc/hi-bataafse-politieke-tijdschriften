@@ -38,18 +38,18 @@ type="text"
 path="jmes:\"Politieke positie\""
 type="text"
 
-[index.facet.beroep1]
+[index.facet.eersteBeroep]
 path="jmes:Beroep_1"
 type="text"
 
-[index.facet.beroep1Opmerking]
+[index.facet.eersteBeroepOpmerking]
 path="jmes:Beroep_1_opmerking"
 type="keyword"
 
-[index.facet.beroep2]
+[index.facet.tweedeBeroep]
 path="jmes:Beroep_2"
 type="text"
 
-[index.facet.beroep3]
+[index.facet.derdeBeroep]
 path="jmes:Beroep_3"
 type="text"

@@ -26,13 +26,9 @@ type="text"
 path="jmes:country_GeoNames"
 type="text"
 
-[index.facet.breedteGraad]
-path="jmes:Latitude"
-type="float"
-
-[index.facet.lengteGraad]
-path="jmes:Longitude"
-type="float"
+[index.facet.coordinaten]
+path="jmes:{ breedteGraad: Latitude, lengteGraad: Longitude }"
+type="nested"
 
 [index.facet.geoNameURI]
 path="jmes:GeoNames_uri"
