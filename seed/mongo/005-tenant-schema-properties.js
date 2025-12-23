@@ -186,7 +186,7 @@ tenantDb.schema_properties.insertMany([
       "schema": {
         "type": "string",
         "format": "link",
-        "x-link-to": "/politieke-tijdschriften-plaatsnaam/details/$plaats1Id"
+        "x-link-to": "/politieke-tijdschriften-plaatsnaam/details/$eerstePlaatsId"
       }
     },
     {
@@ -273,7 +273,7 @@ tenantDb.schema_properties.insertMany([
       "schema": {
         "type": "string",
         "format": "link",
-        "x-link-to": "/politieke-tijdschriften-plaatsnaam/details/$plaats2Id"
+        "x-link-to": "/politieke-tijdschriften-plaatsnaam/details/$tweedePlaatsId"
       }
     },
     {
@@ -283,7 +283,7 @@ tenantDb.schema_properties.insertMany([
       "schema": {
         "type": "string",
         "format": "link",
-        "x-link-to": "/politieke-tijdschriften-plaatsnaam/details/$plaats3Id"
+        "x-link-to": "/politieke-tijdschriften-plaatsnaam/details/$derdePlaatsId"
       }
     }
 ]);
