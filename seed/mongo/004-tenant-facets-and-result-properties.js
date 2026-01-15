@@ -23,6 +23,7 @@ tenantDb.result_properties.deleteMany({ dataset_name: DATASET_NAME });
 tenantDb.result_properties.insertMany([
     { dataset_name: DATASET_NAME, name: "id", path: "$.id", type: 'number', order: 0 },
     { dataset_name: DATASET_NAME, name: "title", path: "$.titel", type: 'text', order: 1 },
+    { dataset_name: DATASET_NAME, name: "tags", path: "$.artikelType", type: 'text', order: 2 },
 ]);
 tenantDb.result_properties.deleteMany({ dataset_name: `${DATASET_NAME}-plaatsnaam` });
 tenantDb.result_properties.insertMany([
