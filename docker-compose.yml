@@ -58,7 +58,7 @@ services:
 
   panoptes-browser:
     container_name: panoptes-react
-    image: registry.diginfra.net/tsd/panoptes-react:schema-config
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:v0.1
     environment:
       - VITE_PANOPTES_URL=http://localhost:8000
     ports:
