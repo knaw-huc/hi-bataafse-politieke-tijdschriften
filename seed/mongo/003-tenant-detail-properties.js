@@ -34,15 +34,32 @@ tenantDb.detail_properties.insertMany([
       },
       "toelichtingRedacteurAuteur": {
         "type": "markdown"
-      }
+      },
+        "drukkerZeker": {
+          "type": "toggle"
+        },
+        "uitgeverZeker": {
+          "type": "toggle"
+        },
+        "politiek": {
+          "type": "toggle"
+        },
+        "nietBewaard": {
+          "type": "toggle"
+        },
+        "politiekKarakter": {
+          "type": "toggle"
+        },
+        "vrijheidGelijkheidBroederschap": {
+          "type": "toggle"
+        }
     }}
 ]);
 tenantDb.detail_properties.deleteMany({ dataset_name: `${DATASET_NAME}-plaatsnaam` });
 tenantDb.detail_properties.insertMany([
     { dataset_name: `${DATASET_NAME}-plaatsnaam`, name: "plaats", type: "json", path: "$", order: 1, config: {
         "id": { "hidden": true },
-        "plaatsId": { "hidden": true },
-        "geoNameURI": { "type": "external-link" }
+        "plaatsId": { "hidden": true }
     }}
 ]);
 tenantDb.detail_properties.deleteMany({ dataset_name: `${DATASET_NAME}-personen` });
@@ -50,8 +67,7 @@ tenantDb.detail_properties.insertMany([
     { dataset_name: `${DATASET_NAME}-personen`, name: "persoon", type: "json", path: "$", order: 1, config: {
             "id": {"hidden": true},
             "persoonId": {"hidden": true},
-            "bioPortaal": {"type": "external-link"},
-            "bioNummer": {"hidden": true}
+            "bioPortaal": {"type": "external-link"}
         }}
 ]);
 tenantDb.detail_properties.deleteMany({ dataset_name: `${DATASET_NAME}-uitgever_drukker` });

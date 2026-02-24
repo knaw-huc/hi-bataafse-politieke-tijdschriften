@@ -72,11 +72,3 @@ You should now be able to open the Panoptes browser, by visiting the URL:
 This should give you a screen similar to:
 
 ![img.png](entry-page.png)
-
-# TODO
-
-- Clean up Procrustus indexer branches. There are several branches with items of work done by different people, and the currently released Procrustus (PyWheel?) is pretty old.
-- Release latest Procrustus version, so other projects and people can use the newer version.
-- The above will require some changes in Procrustus, since the ES index mapping needs to account for objects (arrays should work out of the box).
-
-- Add generation of the MongoDB configuration for the Panoptes API.

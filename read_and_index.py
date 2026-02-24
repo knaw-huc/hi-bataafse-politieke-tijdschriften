@@ -71,16 +71,16 @@ RELATIONS: Dict[str, List[Dict[str, Any]]] = {
 # These are the boolean columns you showed. We convert them into:
 #   row["vorm"] = ["Nieuwsberichten", ...] (all keys whose value is true)
 VORM_BOOL_KEYS = [
-    "Overige overheidsstukken",
+    "Overige_overheidsstukken",
     "Dialogen",
     "Satire",
-    "Notulen en handelingen",
+    "Notulen_en_handelingen",
     "Nieuwsberichten",
     "vorm_Mengelwerk",
     "Advertenties",
-    "Decreten en proclamaties",
-    "Ingezonden brieven",
-    "Redactionele betogen",
+    "Decreten_en_proclamaties",
+    "Ingezonden_brieven",
+    "Redactionele_betogen",
 ]
 
 # If you only want this conversion on some sheets, list them here.

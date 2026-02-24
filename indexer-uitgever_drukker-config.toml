@@ -22,7 +22,7 @@ path="jmes:Eerste_generatie.rowId"
 type="keyword"
 
 [index.facet.eersteGeneratieNaam]
-path="jmes:Eerste_generatie.Name"
+path="jmes:Eerste_generatie.Naam"
 type="keyword"
 
 [index.facet.tweedeGeneratieId]
@@ -30,7 +30,7 @@ path="jmes:Tweede_generatie.rowId"
 type="keyword"
 
 [index.facet.tweedeGeneratieNaam]
-path="jmes:Tweede_generatie.Name"
+path="jmes:Tweede_generatie.Naam"
 type="keyword"
 
 [index.facet.eerstePlaatsId]
@@ -38,14 +38,14 @@ path="jmes:Plaats1.rowId"
 type="keyword"
 
 [index.facet.eerstePlaatsNaam]
-path="jmes:Plaats1.name"
+path="jmes:Plaats1.Name"
 
 [index.facet.tweedePlaatsId]
 path="jmes:Plaats2.rowId"
 type="text"
 
 [index.facet.tweedePlaatsNaam]
-path="jmes:Plaats2.name"
+path="jmes:Plaats2.Name"
 type="text"
 
 [index.facet.derdePlaatsId]
@@ -53,11 +53,11 @@ path="jmes:Plaats3.rowId"
 type="text"
 
 [index.facet.derdePlaatsNaam]
-path="jmes:Plaats3.name"
+path="jmes:Plaats3.Name"
 type="text"
 
 [index.facet.politiekSignatuur]
-path="jmes:\"Politiek signatuur\""
+path="jmes:Politiek_signatuur"
 type="text"
 
 [index.facet.bestaan]

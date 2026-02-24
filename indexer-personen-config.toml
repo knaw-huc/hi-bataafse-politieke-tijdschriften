@@ -15,27 +15,23 @@ path="jmes:ID_def"
 type="keyword"
 
 [index.facet.persoonsNaam]
-path="jmes:Name"
+path="jmes:Naam"
 type="text"
 
 [index.facet.geboorteJaar]
-path="jmes:geboortejaar"
+path="jmes:Geboortejaar"
 type="text"
 
 [index.facet.sterfJaar]
-path="jmes:sterfjaar"
+path="jmes:Sterfjaar"
 type="text"
 
 [index.facet.bioPortaal]
 path="jmes:Bioportaal"
 type="text"
 
-[index.facet.bioNummer]
-path="jmes:Bionummer"
-type="text"
-
 [index.facet.politiekePositie]
-path="jmes:\"Politieke positie\""
+path="jmes:Politieke_positie"
 type="text"
 
 [index.facet.eersteBeroep]

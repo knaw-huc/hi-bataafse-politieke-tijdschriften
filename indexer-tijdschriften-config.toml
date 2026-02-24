@@ -17,23 +17,51 @@ type = "keyword"
 path = "jmes:Uitgever.rowId"
 type = "keyword"
 
-[index.facet.uitgever]
-path = "jmes:Uitgever.Uitgeverij"
-type = "keyword"
-
-[index.facet.drukker]
-path = "jmes:Drukker.Uitgeverij"
-type = "keyword"
+[index.facet.uitgeverZeker]
+path = "jmes:\"Uitgever-z\""
+type = "boolean"
 
 [index.facet.plaatsId]
 path = "jmes:Plaats1.rowId"
 type = "keyword"
 
 [index.facet.plaats]
-path = "jmes:Plaats1.name"
+path = "jmes:Plaats1.Name"
 type = "keyword"
 
-[index.facet.titel]
+[index.facet.uitgever]
+path = "jmes:Uitgever.Uitgeverij"
+type = "keyword"
+
+[index.facet.uitgeverVanaf]
+path = "jmes:Uitgever_vanaf"
+type = "text"
+
+[index.facet.drukker]
+path = "jmes:Drukker.Uitgeverij"
+type = "keyword"
+
+[index.facet.drukkerZeker]
+path = "jmes:\"Drukker-z\""
+type = "boolean"
+
+[index.facet.politiekKarakter]
+path = "jmes:\"Politiek?\""
+type = "boolean"
+
+[index.facet.nietBewaard]
+path = "jmes:Niet_bewaard"
+type = "boolean"
+
+[index.facet.vrijheidGelijkheidBroederschap]
+path = "jmes:VGB"
+type = "boolean"
+
+[index.facet.lidwoordTitel]
+path = "jmes:\"Lidwoord Titel\""
+type = "text"
+
+[index.facet.titelVanTijdschrift]
 path = "jmes:Titel1"
 type = "keyword"
 
@@ -50,6 +78,46 @@ jmes:[
 """
 type = "nested"
 
+[index.facet.onderTitel]
+path = "jmes:Ondertitel"
+type = "text"
+
+[index.facet.motto]
+path = "jmes:Motto"
+type = "text"
+
+[index.facet.frequentie]
+path = "jmes:Frequentie"
+type = "keyword"
+
+[index.facet.eersteNummer]
+path = "jmes:Eerste_nr_EDTF"
+type = "text"
+
+[index.facet.laatsteNummer]
+path = "jmes:Laatste_nr_EDTF"
+type = "text"
+
+[index.facet.prijsDuiten]
+path = "jmes:Prijs_duiten"
+type = "text"
+
+[index.facet.afleveringen]
+path = "jmes:Afleveringen"
+type = "keyword"
+
+[index.facet.dagen-info]
+path = "jmes:\"Dagen/Info\""
+type = "text"
+
+[index.facet.formaat]
+path = "jmes:Formaat"
+type = "text"
+
+[index.facet.datering]
+path = "jmes:Datering"
+type = "text"
+
 [index.facet.vormTijdschrift]
 path = "jmes:Vorm_Tijdschrift"
 type = "keyword"
@@ -58,30 +126,110 @@ type = "keyword"
 path = "jmes:Type_Tijdschrift"
 type = "keyword"
 
-[index.facet.politiekePositie]
-path = "jmes:\"Politieke-Positie\""
+[index.facet.artikelType]
+path = "jmes:artikelType"
 type = "keyword"
 
-[index.facet.eersteNummerJaar]
-path = "jmes:Eerste_nr_JAAR"
-type = "number"
+[index.facet.auteurs-redacteurs]
+path = """
+jmes:[
+    { id: \"Auteur-Redacteur1.rowId\", naam: \"Auteur-Redacteur1.Naam\" },
+    { id: \"Auteur-Redacteur2.rowId\", naam: \"Auteur-Redacteur2.Naam\" },
+    { id: \"Auteur-Redacteur3.rowId\", naam: \"Auteur-Redacteur3.Naam\" },
+    { id: \"Auteur-Redacteur4.rowId\", naam: \"Auteur-Redacteur4.Naam\" },
+    { id: \"Auteur-Redacteur5.rowId\", naam: \"Auteur-Redacteur5.Naam\" }
+]
+"""
+type = "nested"
 
-[index.facet.laatsteNummerJaar]
-path = "jmes:Laatste_nr_JAAR"
+[index.facet.toelichtingRedacteur-Auteur]
+path = "jmes:\"Toelichting_redacteur-auteur\""
 type = "text"
 
-[index.facet.korteOmschrijvingInhoud]
-path = "jmes:Korte_omschrijving_inhoud"
+[index.facet.duidingTitel]
+path = "jmes:Duiding_van_de_titel"
 type = "text"
 
 [index.facet.verantwoordingSelectie]
 path = "jmes:Verantwoording_selectie"
 type = "text"
 
-[index.facet.toelichtingRedacteurAuteur]
-path = "jmes:\"Toelichting_redacteur-auteur\""
+[index.facet.korteOmschrijvingInhoud]
+path = "jmes:Korte_omschrijving_inhoud"
 type = "text"
 
-[index.facet.artikelType]
-path = "jmes:artikelType"
+[index.facet.politiekePositie]
+path = "jmes:\"Politieke-Positie\""
+type = "keyword"
+
+[index.facet.politiekePositieToelichting]
+path = "jmes:Politieke_positie_toelichting"
+type = "text"
+
+[index.facet.doelTijdschrift]
+path = "jmes:Doel_van_het_tijdschrift"
+type = "text"
+
+[index.facet.oplage_en_bereik]
+path = "jmes:Oplage_en_bereik"
+type = "text"
+
+[index.facet.reactie_en_of_justitie]
+path = "jmes:Reactie_en_of_justitie"
+type = "text"
+
+[index.facet.advertenties_en_andere_verwijsplaatsen]
+path = "jmes:Advertenties_en_andere_verwijsplaatsen"
+type = "text"
+
+[index.facet.opmerkingen]
+path = "jmes:Opmerkingen"
+type = "text"
+
+[index.facet.opmaak_en_spelling]
+path = "jmes:Opmaak_en_spelling"
+type = "text"
+
+[index.facet.bewaarplaats]
+path = "jmes:Bewaarplaats"
+type = "text"
+
+[index.facet.apparaat_Hanou]
+path = "jmes:Apparaat_Hanou"
+type = "numer"
+
+[index.facet.apparaat_Kluit]
+path = "jmes:Apparaat_Kluit"
+type = "text"
+
+[index.facet.digitaalExemplaar]
+path = "jmes:Digitaal_exemplaar"
+type = "text"
+
+[index.facet.linkNaarSaakes]
+path = """
+jmes:[
+    Link_naar_Saakes_1,
+    Link_naar_Saakes_2,
+    Link_naar_Saakes_3
+]
+"""
+type = "keyword"
+
+[index.facet.STCN]
+path = "jmes:STCN"
+type = "text"
+
+[index.facet.ENT]
+path = "jmes:ENT"
+type = "text"
+
+[index.facet.secundaireLiteratuur]
+path = """
+jmes:[
+    Seclit1_titel,
+    Seclit2_titel,
+    Seclit3_titel
+]
+"""
 type = "keyword"
