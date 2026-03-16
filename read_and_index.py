@@ -108,7 +108,9 @@ SHEET_ORDER = [
 WRITE_ONE_FILE_PER_ROW = True
 OUT_DIR = Path("json-conversion-output")
 
-es = Elasticsearch(hosts=["http://localhost:9200"])
+_es_host = os.environ.get("ES_HOST", "localhost")
+_es_port = os.environ.get("ES_PORT", "9200")
+es = Elasticsearch(hosts=[f"http://{_es_host}:{_es_port}"])
 
 # ============================ SANITIZATION ================================
 def sanitize(value: Any) -> Any:

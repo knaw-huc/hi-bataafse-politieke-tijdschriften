@@ -66,6 +66,21 @@ services:
     networks:
       - pol-tijdschriften
 
+  indexer:
+    container_name: bpt-indexer
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest
+    command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
+    environment:
+      - ES_HOST=elastic
+      - ES_PORT=9200
+    depends_on:
+      elastic:
+        condition: service_healthy
+    networks:
+      - pol-tijdschriften
+    profiles:
+      - indexer
+
 volumes:
   es-data:
   mongo-data:
