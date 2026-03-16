@@ -59,7 +59,7 @@ services:
     container_name: panoptes-react
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
-      - VITE_PANOPTES_URL=$PANOPTES_URL
+      - VITE_PANOPTES_URL=http://panoptes:8000
     expose:
       - "80"
     labels:

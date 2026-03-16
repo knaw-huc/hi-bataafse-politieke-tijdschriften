@@ -61,7 +61,7 @@ services:
     container_name: panoptes-react
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
-      - VITE_PANOPTES_URL=http://localhost:8000
+      - VITE_PANOPTES_URL=http://panoptes:8000
     ports:
       - "80:80"
     restart: unless-stopped
