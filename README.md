@@ -37,7 +37,7 @@ The configuration for the tenants and datasets in Panoptes is managed in MongoDB
 
 # Docker Compose
 
-The current Docker Compose setup is mainly aimed at development. This spins up an ElasticSearch, a MongoDB and the Panoptes API. If you want to seed ElasticSearch and MongoDB, uncomment the 'es-init' container in the Docker Compose file.
+The current Docker Compose setup is mainly aimed at development. This spins up an ElasticSearch, a MongoDB and the Panoptes API.
 
 You can verify the existence of indexes in ElasticSearch by visiting: http://localhost:9200/_cat/indices?format=json
 
@@ -49,12 +49,43 @@ To get started with this particular setup, you can run the Docker Compose file t
 - MongoDB
 - Panoptes API (with schema additions)
 - Panoptes browser (with schema additions)
+- A one-shot indexer image that indexes the Excel data in ElasticSearch (executing this is tied to a Docker profile).
 
-After this, you will still need to run the read_and_index.py Python script to read the Excel data, have this converted to JSON files and have the JSON data be indexed in ElasticSearch with Procrustus. You should be able to run this Python script with:
+## Running the indexer
+
+The indexer reads the Excel data, converts it to JSON, and indexes it into ElasticSearch via Procrustus. It can be run in two ways:
+
+### Option 1: Docker Compose (recommended)
+
+The Docker Compose file includes an `indexer` service under the `indexer` profile. Run it alongside the core services with:
+
+```docker compose --profile indexer up```
+
+The indexer container connects to ElasticSearch using the `ES_HOST` and `ES_PORT` environment variables (defaulting to `elastic` and `9200` within the Docker network).
+
+### Option 2: Run locally
+
+You can also run the indexer script directly. It will connect to ElasticSearch using the `ES_HOST` and `ES_PORT` environment variables (defaulting to `localhost` and `9200`):
 
 ```poetry run python read_and_index.py Database-Bataafse-Politieke-Tijdschriften.xlsx```
 
-This will index the data in the ElasticSearch container that was started by the Docker Compose. You can verify this with:
+To target a non-default ElasticSearch host:
+
+```ES_HOST=myhost ES_PORT=9201 poetry run python read_and_index.py Database-Bataafse-Politieke-Tijdschriften.xlsx```
+
+## Building the indexer image
+
+A `Dockerfile.indexer` and a `docker-bake.hcl` are provided to build the indexer as a Docker image. To build for both `linux/amd64` and `linux/arm64`:
+
+```docker buildx bake```
+
+The default image tag is `registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest`. Override the registry, image name, or tag with the `REGISTRY`, `IMAGE_NAME`, and `TAG` variables:
+
+```REGISTRY=myregistry TAG=v1.0 docker buildx bake```
+
+## Verifying the indexes
+
+After indexing, verify the ElasticSearch indexes with:
 
 ```curl http://localhost:9200/_cat/indices?format=json```
 
