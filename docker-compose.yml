@@ -7,7 +7,6 @@ services:
       - "27017:27017"
     expose:
       - "27017"
-    restart: unless-stopped
     volumes:
       - mongo-data:/data/db
       - ./seed/mongo:/docker-entrypoint-initdb.d:ro
@@ -16,6 +15,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 30
+    restart: unless-stopped
     networks:
       - pol-tijdschriften
 
@@ -35,6 +35,7 @@ services:
       retries: 60
     volumes:
       - es-data:/usr/share/elasticsearch/data
+    restart: unless-stopped
     networks:
       - pol-tijdschriften
 
@@ -53,6 +54,7 @@ services:
         condition: service_healthy
     ports:
       - "8000:8000"
+    restart: unless-stopped
     networks:
       - pol-tijdschriften
 
@@ -63,6 +65,7 @@ services:
       - VITE_PANOPTES_URL=http://localhost:8000
     ports:
       - "80:80"
+    restart: unless-stopped
     networks:
       - pol-tijdschriften
 
