@@ -29,6 +29,14 @@ type = "keyword"
 path = "jmes:Plaats1.Name"
 type = "keyword"
 
+[index.facet.plaatsBreedtegraad]
+path = "jmes:Plaats1.Latitude"
+type = "number"
+
+[index.facet.plaatsLengtegraad]
+path = "jmes:Plaats1.Longitude"
+type = "number"
+
 [index.facet.uitgever]
 path = "jmes:Uitgever.Uitgeverij"
 type = "keyword"
@@ -39,6 +47,10 @@ type = "text"
 
 [index.facet.drukker]
 path = "jmes:Drukker.Uitgeverij"
+type = "keyword"
+
+[index.facet.drukkerId]
+path = "jmes:Drukker.rowId"
 type = "keyword"
 
 [index.facet.drukkerZeker]
@@ -229,7 +241,8 @@ path = """
 jmes:[
     Seclit1_titel,
     Seclit2_titel,
-    Seclit3_titel
+    Seclit3_titel,
+    Seclit4_titel
 ]
 """
 type = "keyword"

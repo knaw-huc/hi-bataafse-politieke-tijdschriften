@@ -40,7 +40,7 @@ services:
 
   panoptes:
     container_name: panoptes-api
-    image: registry.diginfra.net/tsd/panoptes-backend:schema-config
+    image: registry.diginfra.net/tsd/panoptes-backend:hi-bataafse-politieke-tijdschriften
     environment:
       - ES_SCHEME=http
       - ES_HOST=elastic
@@ -58,7 +58,7 @@ services:
 
   panoptes-browser:
     container_name: panoptes-react
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:v0.1
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
       - VITE_PANOPTES_URL=http://localhost:8000
     ports:

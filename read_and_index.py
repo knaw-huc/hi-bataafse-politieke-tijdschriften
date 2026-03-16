@@ -67,9 +67,17 @@ RELATIONS: Dict[str, List[Dict[str, Any]]] = {
     ],
 }
 
-# ============================ BOOLEAN → LABELS CONVERSION ============================
+# Self-referential relations: processed in a second pass, after the sheet's own index is built.
+SELF_RELATIONS: Dict[str, List[Dict[str, Any]]] = {
+    "Tijdschriften": [
+        {"fk_col": "Vervolgtitel_van_ID", "ref_sheet": "Tijdschriften", "ref_id_col": "Tijdschrift_ID_Nieuw", "as": "Vervolgtitel_van", "many": False, "drop_fk": True},
+        {"fk_col": "Zie_ook_1_ID",        "ref_sheet": "Tijdschriften", "ref_id_col": "Tijdschrift_ID_Nieuw", "as": "Zie_ook_1",        "many": False, "drop_fk": True},
+        {"fk_col": "Zie_ook_2_ID",        "ref_sheet": "Tijdschriften", "ref_id_col": "Tijdschrift_ID_Nieuw", "as": "Zie_ook_2",        "many": False, "drop_fk": True},
+    ],
+}
+
 # These are the boolean columns you showed. We convert them into:
-#   row["vorm"] = ["Nieuwsberichten", ...] (all keys whose value is true)
+# row["vorm"] = ["Nieuwsberichten", ...] (all keys whose value is true)
 VORM_BOOL_KEYS = [
     "Overige_overheidsstukken",
     "Dialogen",
@@ -172,10 +180,13 @@ _RAW_REF_INDEX_CACHE: Dict[Tuple[str, str, str], Dict[str, Dict[str, Any]]] = {}
 def _infer_needed_indices_from_relations() -> DefaultDict[str, Set[str]]:
     """
     Build a mapping: sheet -> set(id_cols) that other sheets will use to reference this sheet.
-    We infer this from RELATIONS: for each relation (ref_sheet, ref_id_col), add id_col under ref_sheet.
+    We infer this from RELATIONS and SELF_RELATIONS.
     """
     need: DefaultDict[str, Set[str]] = defaultdict(set)
     for rels in RELATIONS.values():
+        for rel in rels:
+            need[rel["ref_sheet"]].add(rel["ref_id_col"])
+    for rels in SELF_RELATIONS.values():
         for rel in rels:
             need[rel["ref_sheet"]].add(rel["ref_id_col"])
     return need
@@ -354,6 +365,17 @@ def excel_sheet_to_json(
     _PROCESSED_SHEETS[main_sheet] = [dict(r) for r in records]
     # Build processed indices for any id_cols other sheets will use to reference this sheet
     build_processed_indices_for_sheet(main_sheet, _PROCESSED_SHEETS[main_sheet])
+
+    # Second pass: embed self-referential FKs now that this sheet's own index is built
+    if main_sheet in SELF_RELATIONS and SELF_RELATIONS[main_sheet]:
+        embed_relations_into_records(
+            xls_path=excel_path,
+            main_sheet=main_sheet,
+            records=records,
+            relations=SELF_RELATIONS[main_sheet],
+            default_sep=SEP,
+            prefer_processed_refs=True,
+        )
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     base = str(main_sheet).lower()

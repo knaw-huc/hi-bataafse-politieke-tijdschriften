@@ -1,0 +1,73 @@
+{
+  "id": "uitgever-drukker-detail",
+  "screenType": "normal",
+  "globals": {
+  },
+  "form": {
+    "rows": [
+      {
+        "displayType": "group",
+        "groupId": "uitgever-drukker",
+        "rows": [
+          {
+            "elements": [
+              {
+                "value": "$data#/uitgever",
+                "type": "label"
+              }
+            ]
+          },
+          {
+            "elements": [
+              {
+                "value": "$data#/eersteGeneratieNaam",
+                "type": "link",
+                "config": {
+                  "url": "/politieke-tijdschriften-personen/details/$eersteGeneratieId"
+                }
+              }
+            ]
+          },
+          {
+            "elements": [
+              {
+                "value": "$data#/tweedeGeneratieNaam",
+                "type": "link",
+                "config": {
+                  "url": "/politieke-tijdschriften-personen/details/$tweedeGeneratieId"
+                }
+              }
+            ]
+          },
+          {
+            "elements": [
+              {
+                "value": "$data#/derdeGeneratieNaam",
+                "type": "link",
+                "config": {
+                  "url": "/politieke-tijdschriften-personen/details/$derdeGeneratieId"
+                }
+              }
+            ]
+          },
+          {
+            "elements": [
+              {
+                "value": "$data#/politiekSignatuur",
+                "type": "label"
+              }
+            ]
+          },
+          {
+            "elements": [
+              {
+                "value": "$data#/bestaan",
+                "type": "label"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
