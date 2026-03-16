@@ -130,6 +130,30 @@ type = "text"
 path = "jmes:Datering"
 type = "text"
 
+[index.facet.vervolgTitelVanId]
+path = "jmes:Vervolgtitel_van.rowId"
+type = "keyword"
+
+[index.facet.vervolgTitelVan]
+path = "jmes:Vervolgtitel_van.Titel1"
+type = "text"
+
+[index.facet.zieOok1Id]
+path = "jmes:Zie_ook_1.rowId"
+type = "keyword"
+
+[index.facet.zieOok1]
+path = "jmes:Zie_ook_1.Titel1"
+type = "text"
+
+[index.facet.zieOok2Id]
+path = "jmes:Zie_ook_2.rowId"
+type = "keyword"
+
+[index.facet.zieOok2]
+path = "jmes:Zie_ook_2.Titel1"
+type = "text"
+
 [index.facet.vormTijdschrift]
 path = "jmes:Vorm_Tijdschrift"
 type = "keyword"

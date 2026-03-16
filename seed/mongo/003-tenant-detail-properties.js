@@ -144,6 +144,43 @@ tenantDb.detail_properties.insertMany([
                   "type": "label"
                 }
               ]
+            },
+            {
+              "elements": [
+                {
+                  "value": "$data#/vervolgTitelVan",
+                  "type": "link",
+                  "config": {
+                    "url": "/politieke-tijdschriften/details/$vervolgTitelVanId"
+                  }
+                }
+              ]
+            },
+            {
+              "columns": [
+                {
+                  "elements": [
+                    {
+                      "value": "$data#/zieOok1",
+                      "type": "link",
+                      "config": {
+                        "url": "/politieke-tijdschriften/details/$zieOok1Id"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "elements": [
+                    {
+                      "value": "$data#/zieOok2",
+                      "type": "link",
+                      "config": {
+                        "url": "/politieke-tijdschriften/details/$zieOok2Id"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
