@@ -35,9 +35,25 @@ Panoptes is setup to act in a multi-tenant setup with a single Panoptes API inst
 
 The configuration for the tenants and datasets in Panoptes is managed in MongoDB. In order to configure this, you need to have at least two databases: one named main and one with the name of your tenant.
 
+## Custom MongoDB image
+
+Rather than using the stock `mongo:latest` image, this project builds a custom MongoDB image (`registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest`) via `Dockerfile.mongo`. It extends the official image by copying the seed scripts from `seed/mongo/` into `/docker-entrypoint-initdb.d/`, so the database is automatically seeded with the required Panoptes tenant and dataset configuration on first start:
+
+- `001-main-tenants.js` — creates the `main` database tenants
+- `002-tenant-datasets.js` — configures the tenant datasets
+- `003-tenant-detail-properties.js` — sets detail properties
+- `004-tenant-facets-and-result-properties.js` — sets facets and result properties
+- `005-tenant-schema-properties.js` — sets schema properties
+
+The mongo image is built alongside the indexer image via `docker buildx bake`.
+
 # Docker Compose
 
-The current Docker Compose setup is mainly aimed at development. This spins up an ElasticSearch, a MongoDB and the Panoptes API.
+Two Docker Compose files are provided depending on the deployment target.
+
+## `docker-compose.yml` — development
+
+The default Docker Compose setup is mainly aimed at development. This spins up an ElasticSearch, a MongoDB and the Panoptes API.
 
 You can verify the existence of indexes in ElasticSearch by visiting: http://localhost:9200/_cat/indices?format=json
 
@@ -73,15 +89,51 @@ To target a non-default ElasticSearch host:
 
 ```ES_HOST=myhost ES_PORT=9201 poetry run python read_and_index.py Database-Bataafse-Politieke-Tijdschriften.xlsx```
 
-## Building the indexer image
+## Building the indexer and mongo images
 
-A `Dockerfile.indexer` and a `docker-bake.hcl` are provided to build the indexer as a Docker image. To build for both `linux/amd64` and `linux/arm64`:
+A `Dockerfile.indexer`, `Dockerfile.mongo`, and a `docker-bake.hcl` are provided to build both images. To build for both `linux/amd64` and `linux/arm64`:
 
 ```docker buildx bake```
 
-The default image tag is `registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest`. Override the registry, image name, or tag with the `REGISTRY`, `IMAGE_NAME`, and `TAG` variables:
+The default image tags are:
+- `registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest`
+- `registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest`
+
+Override the registry, image name, or tag with the `REGISTRY`, `IMAGE_NAME`, `MONGO_IMAGE_NAME`, and `TAG` variables:
 
 ```REGISTRY=myregistry TAG=v1.0 docker buildx bake```
+
+## `portainer-template-docker-compose.yml` — Portainer deployments
+
+A separate Compose file is provided for deploying via [Portainer](https://www.portainer.io/). Key differences from the development file:
+
+- Uses the custom mongo image (`registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest`) — same as development.
+- Uses external named volumes (`es-data`, `mongo-data`) and an external `traefik-public` network, which are expected to exist in the target environment.
+- Exposes services via Traefik labels (using `$TRAEFIK_*` variables) rather than publishing ports directly.
+- Uses `expose` instead of `ports` for all services.
+- `VITE_PANOPTES_URL` is driven by the `$PANOPTES_URL` environment variable.
+
+### Prerequisites
+
+The following external resources must exist in the target environment before deploying:
+
+**Volumes** (create once via Portainer or `docker volume create`):
+- `es-data` — persists ElasticSearch data
+- `mongo-data` — persists MongoDB data
+
+**Network:**
+- `traefik-public` — the external Traefik overlay network must exist and have Traefik attached to it
+
+### Environment variables
+
+Set these as Portainer stack environment variables when deploying:
+
+| Variable | Description | Example                                                                                                  |
+|---|---|----------------------------------------------------------------------------------------------------------|
+| `PANOPTES_URL` | Public URL of the Panoptes API, used by the browser frontend | `bataafse-politieke-tijdschriften.dev.diginfra.net`                                                                              |
+| `TRAEFIK_HOST` | Traefik `Host` rule label for the Panoptes browser | `traefik.http.routers.panoptes-browser.rule=Host(\`bataafse-politieke-tijdschriften.dev.diginfra.net\`)` |
+| `TRAEFIK_ENTRYPOINTS` | Traefik entrypoints label for the Panoptes browser | `traefik.http.routers.panoptes-browser.entrypoints=http`                                                 |
+| `TRAEFIK_PORT` | Traefik port label for the Panoptes browser | `traefik.http.services.panoptes-browser.loadbalancer.server.port=80`                                     |
 
 ## Verifying the indexes
 
