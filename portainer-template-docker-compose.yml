@@ -12,9 +12,7 @@ services:
       retries: 30
     restart: unless-stopped
     ports:
-      - "27017:27017"
-    expose:
-      - "27017"
+      - "27018:27017"
     networks:
       - traefik-public
 
@@ -25,9 +23,7 @@ services:
       - discovery.type=single-node
       - xpack.security.enabled=false
     ports:
-      - "9200:9200"
-    expose:
-      - "9200"
+      - "9201:9200"
     healthcheck:
       test: [ "CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null" ]
       interval: 5s
@@ -45,17 +41,15 @@ services:
     environment:
       - ES_SCHEME=http
       - ES_HOST=panoptes-elasticsearch
-      - ES_PORT=9200
-      - MONGO_CONNECTION=mongodb://panoptes-mongo:27017/
+      - ES_PORT=9201
+      - MONGO_CONNECTION=mongodb://panoptes-mongo:27018/
     depends_on:
       mongo:
         condition: service_healthy
       elastic:
         condition: service_healthy
     ports:
-      - "8000:8000"
-    expose:
-      - "8000"
+      - "8001:8000"
     restart: unless-stopped
     networks:
       - traefik-public
@@ -64,7 +58,7 @@ services:
     container_name: panoptes-react
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
-      - VITE_PANOPTES_URL=http://panoptes-api:8000
+      - VITE_PANOPTES_URL=http://panoptes-api:8001
     expose:
       - "80"
     labels:
@@ -82,7 +76,7 @@ services:
     command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
     environment:
       - ES_HOST=panoptes-elasticsearch
-      - ES_PORT=9200
+      - ES_PORT=9201
     depends_on:
       elastic:
         condition: service_healthy
