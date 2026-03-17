@@ -3,8 +3,6 @@ services:
   mongo:
     container_name: panoptes-mongo
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
-    expose:
-      - "27017"
     volumes:
       - mongo-data:/data/db
     healthcheck:
@@ -13,6 +11,10 @@ services:
       timeout: 5s
       retries: 30
     restart: unless-stopped
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
     networks:
       - traefik-public
 
@@ -22,9 +24,10 @@ services:
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
     expose:
-      - '9200'
-      - '9300'
+      - "9200"
     healthcheck:
       test: [ "CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null" ]
       interval: 5s
@@ -49,6 +52,8 @@ services:
         condition: service_healthy
       elastic:
         condition: service_healthy
+    ports:
+      - "8000:8000"
     expose:
       - "8000"
     restart: unless-stopped
