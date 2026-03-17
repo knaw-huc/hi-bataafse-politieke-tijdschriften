@@ -53,7 +53,9 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.panoptes-api.entrypoints=http"
-      - "traefik.http.routers.panoptes-api.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`)"
+      - "traefik.http.routers.panoptes-api.middlewares=strip-api"
+      - "traefik.http.middlewares.strip-api.stripprefix.prefixes=/api"
+      - "traefik.http.routers.panoptes-api.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`) && PathPrefix(`/api`)"
       - "traefik.http.services.panoptes-api.loadbalancer.server.port=8000"
     restart: unless-stopped
     networks:
@@ -63,7 +65,7 @@ services:
     container_name: panoptes-react
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
-      - VITE_PANOPTES_URL=http://bataafse-politieke-tijdschriften.dev.diginfra.org:8000
+      - VITE_PANOPTES_URL=http://bataafse-politieke-tijdschriften.dev.diginfra.org/api
       - VITE_PANOPTES_IS_EMBEDDED=false
       - VITE_PANOPTES_DATASET=politieke-tijdschriften
       - VITE_PANOPTES_SEARCH_PATH=/politieke-tijdschriften/search
