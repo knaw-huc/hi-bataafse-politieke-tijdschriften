@@ -64,9 +64,8 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
-      - $TRAEFIK_PORT
-      - $TRAEFIK_ENTRYPOINTS
-      - $TRAEFIK_HOST
+      - "traefik.http.routers.panoptes-browser.entrypoints=http"
+      - "traefik.http.routers.panoptes-browser.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.net`)"
     restart: unless-stopped
     networks:
       - traefik-public
