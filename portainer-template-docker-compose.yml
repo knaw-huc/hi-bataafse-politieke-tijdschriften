@@ -64,9 +64,9 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.panoptes-browser.entrypoints=http"
-      - "traefik.http.routers.panoptes-browser.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`)"
-      - "traefik.http.services.panoptes-browser.loadbalancer.server.port=80"
+      - "traefik.http.routers.hi-bataafse-politieke-tijdschriften.entrypoints=http"
+      - "traefik.http.routers.hi-bataafse-politieke-tijdschriften.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`)"
+      - "traefik.http.services.hi-bataafse-politieke-tijdschriften.loadbalancer.server.port=80"
     restart: unless-stopped
     networks:
       - traefik-public
