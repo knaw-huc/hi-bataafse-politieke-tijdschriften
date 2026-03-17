@@ -83,8 +83,8 @@ services:
         condition: service_healthy
     networks:
       - traefik-public
-    profiles:
-      - indexer
+    #profiles:
+    #  - indexer
 
 volumes:
   es-data:
