@@ -88,9 +88,7 @@ services:
 
 volumes:
   es-data:
-    external: true
   mongo-data:
-    external: true
 
 networks:
   traefik-public:
