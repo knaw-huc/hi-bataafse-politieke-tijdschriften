@@ -53,8 +53,6 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.panoptes-api.entrypoints=http"
-      - "traefik.http.routers.panoptes-api.middlewares=strip-api"
-      - "traefik.http.middlewares.strip-api.stripprefix.prefixes=/api"
       - "traefik.http.routers.panoptes-api.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`) && PathPrefix(`/api`)"
       - "traefik.http.services.panoptes-api.loadbalancer.server.port=8000"
     restart: unless-stopped
