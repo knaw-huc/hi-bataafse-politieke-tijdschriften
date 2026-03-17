@@ -41,8 +41,8 @@ services:
     environment:
       - ES_SCHEME=http
       - ES_HOST=panoptes-elasticsearch
-      - ES_PORT=9201
-      - MONGO_CONNECTION=mongodb://panoptes-mongo:27018/
+      - ES_PORT=9200
+      - MONGO_CONNECTION=mongodb://panoptes-mongo:27017/
     depends_on:
       mongo:
         condition: service_healthy
@@ -58,7 +58,7 @@ services:
     container_name: panoptes-react
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
-      - VITE_PANOPTES_URL=http://panoptes-api:8001
+      - VITE_PANOPTES_URL=http://panoptes-api:8000
       - VITE_PANOPTES_IS_EMBEDDED=false
       - VITE_PANOPTES_DATASET=politieke-tijdschriften
       - VITE_PANOPTES_SEARCH_PATH=/\$dataset/search
@@ -80,7 +80,7 @@ services:
     command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
     environment:
       - ES_HOST=panoptes-elasticsearch
-      - ES_PORT=9201
+      - ES_PORT=9200
     depends_on:
       elastic:
         condition: service_healthy
