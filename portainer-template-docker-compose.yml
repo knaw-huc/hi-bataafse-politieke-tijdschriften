@@ -62,12 +62,12 @@ services:
   panoptes-browser:
     container_name: panoptes-react
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
-    #environment:
-    #  - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.dev.diginfra.org
-    #  - VITE_PANOPTES_IS_EMBEDDED=false
-    #  - VITE_PANOPTES_DATASET=politieke-tijdschriften
-    #  - VITE_PANOPTES_SEARCH_PATH=/politieke-tijdschriften/search
-    #  - VITE_PANOPTES_DETAIL_PATH=/politieke-tijdschriften/details/$$id
+    environment:
+      - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.dev.diginfra.org
+      - VITE_PANOPTES_IS_EMBEDDED=false
+      - VITE_PANOPTES_DATASET=politieke-tijdschriften
+      - VITE_PANOPTES_SEARCH_PATH=/politieke-tijdschriften/search
+      - VITE_PANOPTES_DETAIL_PATH=/politieke-tijdschriften/details/$$id
     expose:
       - "80"
     labels:
