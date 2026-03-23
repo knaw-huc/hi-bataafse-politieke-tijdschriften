@@ -4,9 +4,9 @@ services:
     container_name: panoptes-mongo
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
     ports:
-      - "27017:27017"
+      - '27017:27017'
     expose:
-      - "27017"
+      - '27017'
     volumes:
       - mongo-data:/data/db
     healthcheck:
@@ -27,6 +27,9 @@ services:
     ports:
       - '9200:9200'
       - '9300:9300'
+    expose:
+      - '9200'
+      - '9300'
     healthcheck:
       test: [ "CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null" ]
       interval: 5s
@@ -52,7 +55,9 @@ services:
       elastic:
         condition: service_healthy
     ports:
-      - "8000:8000"
+      - '8000:8000'
+    expose:
+      - '8000'
     restart: unless-stopped
     networks:
       - pol-tijdschriften
@@ -64,6 +69,8 @@ services:
       - VITE_PANOPTES_URL=http://panoptes:8000
     ports:
       - "80:80"
+    expose:
+      - "80"
     restart: unless-stopped
     networks:
       - pol-tijdschriften
