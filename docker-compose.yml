@@ -64,9 +64,13 @@ services:
 
   panoptes-browser:
     container_name: panoptes-react
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
+    image: bpt-browser-one-image:latest
     environment:
-      - VITE_PANOPTES_URL=http://panoptes:8000
+      - VITE_PANOPTES_URL=http://localhost:8000
+      - VITE_PANOPTES_IS_EMBEDDED=false
+      - VITE_PANOPTES_DATASET=politieke-tijdschriften
+      - VITE_PANOPTES_SEARCH_PATH=/$$dataset/search
+      - VITE_PANOPTES_DETAIL_PATH=/$$dataset/details/$$id
     ports:
       - "80:80"
     expose:
@@ -87,8 +91,8 @@ services:
         condition: service_healthy
     networks:
       - pol-tijdschriften
-    profiles:
-      - indexer
+    #profiles:
+    #  - indexer
 
 volumes:
   es-data:
