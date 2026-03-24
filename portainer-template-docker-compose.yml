@@ -61,7 +61,7 @@ services:
 
   panoptes-browser:
     container_name: panoptes-react
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:one-bptp-image
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
       - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.dev.diginfra.org
       - VITE_PANOPTES_IS_EMBEDDED=false
