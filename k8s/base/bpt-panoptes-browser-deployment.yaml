@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    name: bpt-browser
+    part-of: bataafse-politieke-tijdschriften
+  name: bpt-browser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: bpt-browser
+      part-of: bataafse-politieke-tijdschriften
+  template:
+    metadata:
+      labels:
+        name: bpt-browser
+        part-of: bataafse-politieke-tijdschriften
+    spec:
+      containers:
+        - env:
+            - name: VITE_PANOPTES_DATASET
+              value: politieke-tijdschriften
+            - name: VITE_PANOPTES_DETAIL_PATH
+              value: /$dataset/details/$id
+            - name: VITE_PANOPTES_IS_EMBEDDED
+              value: "false"
+            - name: VITE_PANOPTES_SEARCH_PATH
+              value: /$dataset/search
+            - name: VITE_PANOPTES_URL
+              value: http://localhost
+          image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
+          imagePullPolicy: IfNotPresent
+          name: bpt-panoptes-react
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      restartPolicy: Always

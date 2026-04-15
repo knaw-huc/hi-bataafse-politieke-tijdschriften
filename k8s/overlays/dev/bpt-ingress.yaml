@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bpt-ingress
+  namespace: bpt
+spec:
+  rules:
+    - host: bpt.panoptes.dev.diginfra.org
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: bpt-panoptes-svc
+                port:
+                  number: 8000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: bpt-browser-svc
+                port:
+                  number: 80

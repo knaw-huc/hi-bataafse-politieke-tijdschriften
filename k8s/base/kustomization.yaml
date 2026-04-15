@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: bpt
+resources:
+  - bpt-elastic-deployment.yaml
+  - bpt-elastic-svc.yaml
+  - bpt-es-data-pvc.yaml
+  - bpt-indexer-job.yaml
+  - bpt-mongo-data-pvc.yaml
+  - bpt-mongo-deployment.yaml
+  - bpt-mongo-svc.yaml
+  - bpt-panoptes-browser-deployment.yaml
+  - bpt-panoptes-browser-svc.yaml
+  - bpt-panoptes-deployment.yaml
+  - bpt-panoptes-svc.yaml

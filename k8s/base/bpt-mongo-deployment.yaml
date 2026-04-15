@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bpt-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: bpt-mongo
+      part-of: bataafse-politieke-tijdschriften
+  template:
+    metadata:
+      labels:
+        name: bpt-mongo
+        part-of: bataafse-politieke-tijdschriften
+    spec:
+      containers:
+        - name: bpt-mongo
+          image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name: bpt-mongo-data
+              mountPath: /data/db
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+      volumes:
+        - name: bpt-mongo-data
+          persistentVolumeClaim:
+            claimName: bpt-mongo-data
+      restartPolicy: Always

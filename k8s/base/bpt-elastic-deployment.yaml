@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bpt-elastic
+  labels:
+    name: bpt-elastic
+    part-of: bataafse-politieke-tijdschriften
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: bpt-elastic
+      part-of: bataafse-politieke-tijdschriften
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: bpt-elastic
+      labels:
+        name: bpt-elastic
+        part-of: bataafse-politieke-tijdschriften
+    spec:
+      containers:
+        - name: panoptes-elasticsearch
+          image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: discovery.type
+              value: single-node
+            - name: xpack.security.enabled
+              value: "false"
+          ports:
+            - containerPort: 9200
+              protocol: TCP
+            - containerPort: 9300
+              protocol: TCP
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: bpt-es-data
+      restartPolicy: Always
+      volumes:
+        - name: bpt-es-data
+          persistentVolumeClaim:
+            claimName: bpt-es-data

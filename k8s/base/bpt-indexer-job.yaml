@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bpt-indexer-job
+  labels:
+    service: bpt-indexer
+spec:
+  ttlSecondsAfterFinished: 120
+  template:
+    spec:
+      containers:
+        - name: bpt-indexer
+          image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest
+          args:
+            - data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx
+            - ALL
+          env:
+            - name: ES_HOST
+              value: bpt-elastic-svc
+            - name: ES_PORT
+              value: "9200"
+      restartPolicy: OnFailure

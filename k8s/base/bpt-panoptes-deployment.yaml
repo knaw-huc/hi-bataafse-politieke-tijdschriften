@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bpt-panoptes
+  labels:
+    name: bpt-panoptes
+    part-of: bataafse-politieke-tijdschriften
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: bpt-panoptes
+      part-of: bataafse-politieke-tijdschriften
+  template:
+    metadata:
+      name: bpt-panoptes
+      labels:
+        name: bpt-panoptes
+        part-of: bataafse-politieke-tijdschriften
+    spec:
+      containers:
+        - name: bpt-panoptes-api
+          image: registry.diginfra.net/tsd/panoptes-backend:hi-bataafse-politieke-tijdschriften
+          env:
+            - name: ES_SCHEME
+              value: http
+            - name: ES_HOST
+              value: bpt-elastic-svc
+            - name: ES_PORT
+              value: "9200"
+            - name: MONGO_CONNECTION
+              value: mongodb://bpt-mongo-svc:27017
+          ports:
+            - containerPort: 8000
+              name: http
+              protocol: TCP
+          startupProbe:
+            httpGet:
+              path: /health
+              port: http
+            failureThreshold: 30
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            failureThreshold: 1
+            periodSeconds: 10
+      restartPolicy: Always
