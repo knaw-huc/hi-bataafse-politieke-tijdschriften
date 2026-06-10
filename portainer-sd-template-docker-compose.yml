@@ -1,0 +1,103 @@
+services:
+  bpt-mongo:
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: [ "CMD-SHELL", "mongosh --quiet --eval 'db.adminCommand({ ping: 1 })' > /dev/null" ]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    restart: unless-stopped
+    networks:
+      - pol-tijdschriften
+
+  bpt-elastic:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+    environment:
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null" ]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    deploy:
+      resources:
+        limits:
+          memory: 2g
+    restart: unless-stopped
+    networks:
+      - pol-tijdschriften
+
+  bpt-panoptes:
+    image: registry.diginfra.net/tsd/panoptes-backend:hi-bataafse-politieke-tijdschriften
+    environment:
+      - ES_SCHEME=http
+      - ES_HOST=bpt-elastic
+      - ES_PORT=9200
+      - MONGO_CONNECTION=mongodb://bpt-mongo:27017/
+    depends_on:
+      bpt-mongo:
+        condition: service_healthy
+      bpt-elastic:
+        condition: service_healthy
+    expose:
+      - "8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
+      - "traefik.http.routers.bpt-panoptes.entrypoints=http"
+      - "traefik.http.routers.bpt-panoptes.rule=Host(`bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl`) && PathPrefix('/api')"
+      - "traefik.http.services.bpt-panoptes.loadbalancer.server.port=8000"
+    restart: unless-stopped
+    networks:
+      - pol-tijdschriften
+      - traefik-public
+
+  bpt-panoptes-browser:
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
+    environment:
+      - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.dev.diginfra.org
+      - VITE_PANOPTES_IS_EMBEDDED=false
+      - VITE_PANOPTES_DATASET=politieke-tijdschriften
+      - VITE_PANOPTES_SEARCH_PATH=/$$dataset/search
+      - VITE_PANOPTES_DETAIL_PATH=/$$dataset/details/$$id
+    expose:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
+      - "traefik.http.routers.bpt-panoptes-browser.entrypoints=http"
+      - "traefik.http.routers.bpt-panoptes-browser.rule=Host(`bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl`)"
+      - "traefik.http.services.bpt-panoptes-browser.loadbalancer.server.port=80"
+    restart: unless-stopped
+    networks:
+      - pol-tijdschriften
+      - traefik-public
+
+  bpt-indexer:
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest
+    command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
+    environment:
+      - ES_HOST=bpt-elastic
+      - ES_PORT=9200
+    depends_on:
+      bpt-elastic:
+        condition: service_healthy
+    restart: no
+    networks:
+      - pol-tijdschriften
+
+volumes:
+  es-data:
+  mongo-data:
+
+networks:
+  pol-tijdschriften:
+    internal: true
+  traefik-public:
+    external: true
