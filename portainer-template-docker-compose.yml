@@ -1,6 +1,5 @@
 services:
-  mongo:
-    container_name: panoptes-mongo
+  bpt-mongo:
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
     volumes:
       - mongo-data:/data/db
@@ -13,9 +12,8 @@ services:
     networks:
       - pol-tijdschriften
 
-  elastic:
+  bpt-elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
-    container_name: panoptes-elasticsearch
     environment:
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - discovery.type=single-node
@@ -35,34 +33,32 @@ services:
     networks:
       - pol-tijdschriften
 
-  panoptes:
-    container_name: panoptes-api
+  bpt-panoptes:
     image: registry.diginfra.net/tsd/panoptes-backend:hi-bataafse-politieke-tijdschriften
     environment:
       - ES_SCHEME=http
-      - ES_HOST=panoptes-elasticsearch
+      - ES_HOST=bpt-elastic
       - ES_PORT=9200
-      - MONGO_CONNECTION=mongodb://panoptes-mongo:27017/
+      - MONGO_CONNECTION=mongodb://bpt-mongo:27017/
     depends_on:
-      mongo:
+      bpt-mongo:
         condition: service_healthy
-      elastic:
+      bpt-elastic:
         condition: service_healthy
     expose:
       - "8000"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-public"
-      - "traefik.http.routers.panoptes-api.entrypoints=http"
-      - "traefik.http.routers.panoptes-api.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`) && PathPrefix(`/api`)"
-      - "traefik.http.services.panoptes-api.loadbalancer.server.port=8000"
+      - "traefik.http.routers.bpt-panoptes.entrypoints=http"
+      - "traefik.http.routers.bpt-panoptes.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`) && PathPrefix(`/api`)"
+      - "traefik.http.services.bpt-panoptes.loadbalancer.server.port=8000"
     restart: unless-stopped
     networks:
       - pol-tijdschriften
       - traefik-public
 
-  panoptes-browser:
-    container_name: panoptes-react
+  bpt-panoptes-browser:
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
     environment:
       - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.dev.diginfra.org
@@ -75,20 +71,19 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-public"
-      - "traefik.http.routers.panoptes-react.entrypoints=http"
-      - "traefik.http.routers.panoptes-react.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`)"
-      - "traefik.http.services.panoptes-react.loadbalancer.server.port=80"
+      - "traefik.http.routers.bpt-panoptes-browser.entrypoints=http"
+      - "traefik.http.routers.bpt-panoptes-browser.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`)"
+      - "traefik.http.services.bpt-panoptes-browser.loadbalancer.server.port=80"
     restart: unless-stopped
     networks:
       - pol-tijdschriften
       - traefik-public
 
-  indexer:
-    container_name: bpt-indexer
+  bpt-indexer:
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest
     command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
     environment:
-      - ES_HOST=panoptes-elasticsearch
+      - ES_HOST=bpt-elastic
       - ES_PORT=9200
     depends_on:
       elastic:
