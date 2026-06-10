@@ -1,5 +1,4 @@
 services:
-
   mongo:
     container_name: panoptes-mongo
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
@@ -11,19 +10,16 @@ services:
       timeout: 5s
       retries: 30
     restart: unless-stopped
-    expose:
-      - "27017"
     networks:
-      - traefik-public
+      - pol-tijdschriften
 
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
     container_name: panoptes-elasticsearch
     environment:
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - discovery.type=single-node
       - xpack.security.enabled=false
-    expose:
-      - "9200"
     healthcheck:
       test: [ "CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null" ]
       interval: 5s
@@ -31,9 +27,13 @@ services:
       retries: 60
     volumes:
       - es-data:/usr/share/elasticsearch/data
+    deploy:
+      resources:
+        limits:
+          memory: 2g
     restart: unless-stopped
     networks:
-      - traefik-public
+      - pol-tijdschriften
 
   panoptes:
     container_name: panoptes-api
@@ -52,11 +52,13 @@ services:
       - "8000"
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
       - "traefik.http.routers.panoptes-api.entrypoints=http"
       - "traefik.http.routers.panoptes-api.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`) && PathPrefix(`/api`)"
       - "traefik.http.services.panoptes-api.loadbalancer.server.port=8000"
     restart: unless-stopped
     networks:
+      - pol-tijdschriften
       - traefik-public
 
   panoptes-browser:
@@ -72,11 +74,13 @@ services:
       - "80"
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
       - "traefik.http.routers.panoptes-react.entrypoints=http"
       - "traefik.http.routers.panoptes-react.rule=Host(`bataafse-politieke-tijdschriften.dev.diginfra.org`)"
       - "traefik.http.services.panoptes-react.loadbalancer.server.port=80"
     restart: unless-stopped
     networks:
+      - pol-tijdschriften
       - traefik-public
 
   indexer:
@@ -89,15 +93,16 @@ services:
     depends_on:
       elastic:
         condition: service_healthy
+    restart: no
     networks:
-      - traefik-public
-    #profiles:
-    #  - indexer
+      - pol-tijdschriften
 
 volumes:
   es-data:
   mongo-data:
 
 networks:
+  pol-tijdschriften:
+    internal: true
   traefik-public:
     external: true
