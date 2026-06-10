@@ -51,7 +51,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-public"
       - "traefik.http.routers.bpt-panoptes.entrypoints=http"
-      - "traefik.http.routers.bpt-panoptes.rule=Host(`bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl`) && PathPrefix('/api')"
+      - "traefik.http.routers.bpt-panoptes.rule=Host(`bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl`) && PathPrefix(`/api`)"
       - "traefik.http.services.bpt-panoptes.loadbalancer.server.port=8000"
     restart: unless-stopped
     networks:
