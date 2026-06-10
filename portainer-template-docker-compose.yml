@@ -86,7 +86,7 @@ services:
       - ES_HOST=bpt-elastic
       - ES_PORT=9200
     depends_on:
-      elastic:
+      bpt-elastic:
         condition: service_healthy
     restart: no
     networks:
