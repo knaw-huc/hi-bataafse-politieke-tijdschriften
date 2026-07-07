@@ -16,9 +16,7 @@ tenantDb.facets.deleteMany({ dataset_name: DATASET_NAME });
      { dataset_name: DATASET_NAME, name: "Type tijdschrift", property: "typeTijdschrift", type: "text", order: 7 },
      { dataset_name: DATASET_NAME, name: "Type artikel", property: "artikelType", type: "text", order: 8 },
      { dataset_name: DATASET_NAME, name: "Frequentie", property: "frequentie", type: "text", order:  9 },
-     { dataset_name: DATASET_NAME, name: "Politieke positie", property: "politiekePositie", type: "text", order: 10 },
-     { dataset_name: DATASET_NAME, name: "Jaar eerste nummer", property: "eersteNummerJaar", type: "range", order: 11 },
-     { dataset_name: DATASET_NAME, name: "Jaar laatste nummer", property: "laatsteNummerJaar", type: "range", order: 12 },
+     { dataset_name: DATASET_NAME, name: "Politieke positie", property: "politiekePositie", type: "text", order: 10 }
 ]);
 
 // ---------- RESULT PROPERTIES ----------
