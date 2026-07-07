@@ -362,7 +362,7 @@ tenantDb.detail_properties.insertMany([
           "elements": [
             {
               "value": "$data#$.linkNaarSaakes",
-              "type": "list"
+              "type": "external-link-set"
             }
           ]
         },
@@ -372,7 +372,7 @@ tenantDb.detail_properties.insertMany([
           "elements": [
             {
               "value": "$data#$.STCN",
-              "type": "label"
+              "type": "external-link"
             }
           ]
         },
@@ -382,7 +382,7 @@ tenantDb.detail_properties.insertMany([
           "elements": [
             {
               "value": "$data#$.ENT",
-              "type": "label"
+              "type": "external-link"
             }
           ]
         },
