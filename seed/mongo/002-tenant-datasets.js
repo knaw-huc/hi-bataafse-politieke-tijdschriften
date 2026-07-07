@@ -23,7 +23,8 @@ tenantDb.datasets.updateOne(
                 ...dataConfiguration,
                 home_url: `/${DATASET_NAME}/search`
             },
-            detail_id: "id"
+            detail_id: "id",
+            metadata: { }
         }
     },
     { upsert: true }
@@ -42,7 +43,8 @@ tenantDb.datasets.updateOne(
                 ...dataConfiguration,
                 home_url: `/${DATASET_NAME}-plaatsnaam/search`
             },
-            detail_id: "id"
+            detail_id: "id",
+            metadata: { }
         }
     },
     { upsert: true }
@@ -62,7 +64,8 @@ tenantDb.datasets.updateOne(
                 ...dataConfiguration,
                 home_url: `/${DATASET_NAME}-personen/search`
             },
-            detail_id: "id"
+            detail_id: "id",
+            metadata: { }
         }
     },
     { upsert: true }
@@ -79,7 +82,8 @@ tenantDb.datasets.updateOne(
                 ...dataConfiguration,
                 home_url: `/${DATASET_NAME}-uitgever_drukker/search`
             },
-            detail_id: "id"
+            detail_id: "id",
+            metadata: { }
         }
     },
     { upsert: true }

@@ -29,6 +29,10 @@ type = "keyword"
 path = "jmes:Plaats1.Name"
 type = "keyword"
 
+[index.facet.titel]
+path = "jmes:Titel1"
+type = "keyword"
+
 [index.facet.plaatsBreedtegraad]
 path = "jmes:Plaats1.Latitude"
 type = "number"
@@ -41,13 +45,17 @@ type = "number"
 path = "jmes:Uitgever.Uitgeverij"
 type = "keyword"
 
+[index.facet.plaatsVanUitgave]
+path = "jmes:Uitgever.Plaats1.Name"
+type = "keyword"
+
 [index.facet.uitgeverVanaf]
 path = "jmes:Uitgever_vanaf"
 type = "text"
 
 [index.facet.drukker]
 path = "jmes:Drukker.Uitgeverij"
-type = "keyword"
+type = "text"
 
 [index.facet.drukkerId]
 path = "jmes:Drukker.rowId"
@@ -109,6 +117,14 @@ type = "text"
 [index.facet.laatsteNummer]
 path = "jmes:Laatste_nr_EDTF"
 type = "text"
+
+[index.facet.eersteNummerJaar]
+path = "jmes:Eerste_nr_JAAR"
+type = "number"
+
+[index.facet.laatsteNummerJaar]
+path = "jmes:Laatste_nr_JAAR"
+type = "number"
 
 [index.facet.prijsDuiten]
 path = "jmes:Prijs_duiten"
@@ -232,7 +248,7 @@ type = "text"
 
 [index.facet.apparaat_Hanou]
 path = "jmes:Apparaat_Hanou"
-type = "numer"
+type = "text"
 
 [index.facet.apparaat_Kluit]
 path = "jmes:Apparaat_Kluit"
@@ -250,7 +266,7 @@ jmes:[
     Link_naar_Saakes_3
 ]
 """
-type = "keyword"
+type = "text"
 
 [index.facet.STCN]
 path = "jmes:STCN"
@@ -269,4 +285,4 @@ jmes:[
     Seclit4_titel
 ]
 """
-type = "keyword"
+type = "text"

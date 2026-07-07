@@ -1,6 +1,6 @@
 services:
   bpt-mongo:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:latest
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.2
     volumes:
       - mongo-data:/data/db
     healthcheck:
@@ -13,7 +13,7 @@ services:
       - pol-tijdschriften
 
   bpt-elastic:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.2
     environment:
       - ES_JAVA_OPTS=-Xms1g -Xmx1g
       - discovery.type=single-node
@@ -59,7 +59,7 @@ services:
       - traefik-public
 
   bpt-panoptes-browser:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:latest
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.2
     environment:
       - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl
       - VITE_PANOPTES_IS_EMBEDDED=false
@@ -80,7 +80,7 @@ services:
       - traefik-public
 
   bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.2
     command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
     environment:
       - ES_HOST=bpt-elastic
