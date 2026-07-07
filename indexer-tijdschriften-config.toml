@@ -55,7 +55,7 @@ type = "text"
 
 [index.facet.drukker]
 path = "jmes:Drukker.Uitgeverij"
-type = "keyword"
+type = "text"
 
 [index.facet.drukkerId]
 path = "jmes:Drukker.rowId"
@@ -248,7 +248,7 @@ type = "text"
 
 [index.facet.apparaat_Hanou]
 path = "jmes:Apparaat_Hanou"
-type = "numer"
+type = "text"
 
 [index.facet.apparaat_Kluit]
 path = "jmes:Apparaat_Kluit"
