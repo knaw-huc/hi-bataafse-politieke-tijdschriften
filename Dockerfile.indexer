@@ -1,4 +1,4 @@
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 RUN pip install --no-cache-dir poetry
 
@@ -12,4 +12,4 @@ COPY indexer-*.toml ./
 COPY data/ ./data/
 
 ENTRYPOINT ["poetry", "run", "python", "read_and_index.py"]
-CMD ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx"]
+CMD ["data/Database-Bataafse-Politieke-Tijdschriften-V4.xlsx"]

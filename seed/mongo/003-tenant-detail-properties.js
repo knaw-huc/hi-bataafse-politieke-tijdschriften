@@ -19,7 +19,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/lidwoordTitel",
+                  "value": "$data#$.lidwoordTitel",
                   "type": "label"
                 }
               ]
@@ -27,7 +27,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/titelVanTijdschrift",
+                  "value": "$data#$.titelVanTijdschrift",
                   "type": "label"
                 }
               ]
@@ -35,7 +35,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/onderTitel",
+                  "value": "$data#$.onderTitel",
                   "type": "label"
                 }
               ]
@@ -43,7 +43,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/motto",
+                  "value": "$data#$.motto",
                   "type": "label"
                 }
               ]
@@ -59,7 +59,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/uitgever",
+                      "value": "$data#$.uitgever",
                       "type": "link",
                       "config": {
                         "url": "/politieke-tijdschriften-uitgever_drukker/details/$uitgeverId"
@@ -70,7 +70,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/drukker",
+                      "value": "$data#$.drukker",
                       "type": "link",
                       "config": {
                         "url": "/politieke-tijdschriften-uitgever_drukker/details/$drukkerId"
@@ -81,7 +81,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/plaats",
+                      "value": "$data#$.plaats",
                       "type": "link",
                       "config": {
                         "url": "/politieke-tijdschriften-plaatsnaam/details/$plaatsId"
@@ -89,8 +89,8 @@ tenantDb.detail_properties.insertMany([
                     },
                     {
                       "value": {
-                        "latitude": "$data#/plaatsBreedtegraad",
-                        "longitude": "$data#/plaatsLengtegraad"
+                        "latitude": "$data#$.plaatsBreedtegraad",
+                        "longitude": "$data#$.plaatsLengtegraad"
                       },
                       "type": "map",
                       "config": {
@@ -106,7 +106,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/uitgeverZeker",
+                      "value": "$data#$.uitgeverZeker",
                       "type": "toggle"
                     }
                   ]
@@ -114,7 +114,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/drukkerZeker",
+                      "value": "$data#$.drukkerZeker",
                       "type": "toggle"
                     }
                   ]
@@ -122,7 +122,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/nietBewaard",
+                      "value": "$data#$.nietBewaard",
                       "type": "toggle"
                     }
                   ]
@@ -130,7 +130,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/vrijheidGelijkheidBroederschap",
+                      "value": "$data#$.vrijheidGelijkheidBroederschap",
                       "type": "toggle"
                     }
                   ]
@@ -140,7 +140,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/bewaarplaats",
+                  "value": "$data#$.bewaarplaats",
                   "type": "label"
                 }
               ]
@@ -148,7 +148,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/vervolgTitelVan",
+                  "value": "$data#$.vervolgTitelVan",
                   "type": "link",
                   "config": {
                     "url": "/politieke-tijdschriften/details/$vervolgTitelVanId"
@@ -161,7 +161,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/zieOok1",
+                      "value": "$data#$.zieOok1",
                       "type": "link",
                       "config": {
                         "url": "/politieke-tijdschriften/details/$zieOok1Id"
@@ -172,7 +172,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/zieOok2",
+                      "value": "$data#$.zieOok2",
                       "type": "link",
                       "config": {
                         "url": "/politieke-tijdschriften/details/$zieOok2Id"
@@ -193,7 +193,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/eersteNummer",
+                      "value": "$data#$.eersteNummer",
                       "type": "label"
                     }
                   ]
@@ -201,7 +201,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/laatsteNummer",
+                      "value": "$data#$.laatsteNummer",
                       "type": "label"
                     }
                   ]
@@ -209,7 +209,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/prijsDuiten",
+                      "value": "$data#$.prijsDuiten",
                       "type": "label"
                     }
                   ]
@@ -217,7 +217,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/afleveringen",
+                      "value": "$data#$.afleveringen",
                       "type": "label"
                     }
                   ]
@@ -229,7 +229,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/frequentie",
+                      "value": "$data#$.frequentie",
                       "type": "label"
                     }
                   ]
@@ -237,7 +237,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/formaat",
+                      "value": "$data#$.formaat",
                       "type": "label"
                     }
                   ]
@@ -245,7 +245,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/dagen-info",
+                      "value": "$data#$.dagen-info",
                       "type": "label"
                     }
                   ]
@@ -253,7 +253,7 @@ tenantDb.detail_properties.insertMany([
                 {
                   "elements": [
                     {
-                      "value": "$data#/datering",
+                      "value": "$data#$.datering",
                       "type": "label"
                     }
                   ]
@@ -269,7 +269,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/vormTijdschrift",
+                  "value": "$data#$.vormTijdschrift",
                   "type": "label"
                 }
               ]
@@ -277,7 +277,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/typeTijdschrift",
+                  "value": "$data#$.typeTijdschrift",
                   "type": "label"
                 }
               ]
@@ -285,7 +285,7 @@ tenantDb.detail_properties.insertMany([
             {
               "elements": [
                 {
-                  "value": "$data#/politiekePositie",
+                  "value": "$data#$.politiekePositie",
                   "type": "label"
                 }
               ]
@@ -297,41 +297,41 @@ tenantDb.detail_properties.insertMany([
           "groupId": "inhoud",
           "elements": [
             {
-              "value": "$data#/korteOmschrijvingInhoud",
+              "value": "$data#$.korteOmschrijvingInhoud",
               "type": "markdown",
               "config": {
               }
             },
             {
-              "value": "$data#/verantwoordingSelectie",
+              "value": "$data#$.verantwoordingSelectie",
               "type": "markdown",
               "config": {
               }
             },
             {
-              "value": "$data#/toelichtingRedacteurAuteur",
+              "value": "$data#$.toelichtingRedacteurAuteur",
               "type": "markdown",
               "config": {
               }
             },
             {
-              "value": "$data#/duidingTitel",
+              "value": "$data#$.duidingTitel",
               "type": "label"
             },
             {
-              "value": "$data#/advertenties_en_andere_verwijsplaatsen",
+              "value": "$data#$.advertenties_en_andere_verwijsplaatsen",
               "type": "markdown"
             },
             {
-              "value": "$data#/opmaak_en_spelling",
+              "value": "$data#$.opmaak_en_spelling",
               "type": "label"
             },
             {
-              "value": "$data#/apparaat_Hanou",
+              "value": "$data#$.apparaat_Hanou",
               "type": "label"
             },
             {
-              "value": "$data#/apparaat_Kluit",
+              "value": "$data#$.apparaat_Kluit",
               "type": "label"
             }
           ]
@@ -341,7 +341,7 @@ tenantDb.detail_properties.insertMany([
           "groupId": "aanvullende-titels",
           "elements": [
             {
-              "value": "$data#/aanvullendeTitels",
+              "value": "$data#$.aanvullendeTitels",
               "type": "list"
             }
           ]
@@ -351,7 +351,7 @@ tenantDb.detail_properties.insertMany([
           "groupId": "artikel-types",
           "elements": [
             {
-              "value": "$data#/artikelType",
+              "value": "$data#$.artikelType",
               "type": "list"
             }
           ]
@@ -361,7 +361,7 @@ tenantDb.detail_properties.insertMany([
           "groupId": "saakes",
           "elements": [
             {
-              "value": "$data#/linkNaarSaakes",
+              "value": "$data#$.linkNaarSaakes",
               "type": "list"
             }
           ]
@@ -371,7 +371,7 @@ tenantDb.detail_properties.insertMany([
           "groupId": "stcn",
           "elements": [
             {
-              "value": "$data#/STCN",
+              "value": "$data#$.STCN",
               "type": "label"
             }
           ]
@@ -381,7 +381,7 @@ tenantDb.detail_properties.insertMany([
           "groupId": "ent",
           "elements": [
             {
-              "value": "$data#/ENT",
+              "value": "$data#$.ENT",
               "type": "label"
             }
           ]
@@ -391,7 +391,7 @@ tenantDb.detail_properties.insertMany([
           "groupId": "seclit",
           "elements": [
             {
-              "value": "$data#/secundaireLiteratuur",
+              "value": "$data#$.secundaireLiteratuur",
               "type": "list"
             }
           ]
@@ -416,7 +416,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/plaatsnaam",
+                    "value": "$data#$.plaatsnaam",
                     "type": "label"
                   }
                 ]
@@ -425,8 +425,8 @@ tenantDb.detail_properties.insertMany([
                 "elements": [
                   {
                     "value": {
-                      "latitude": "$data#/coordinaten/breedteGraad",
-                      "longitude": "$data#/coordinaten/lengteGraad"
+                      "latitude": "$data#$.coordinaten.breedteGraad",
+                      "longitude": "$data#$.coordinaten.lengteGraad"
                     },
                     "type": "map",
                     "config": {
@@ -440,7 +440,7 @@ tenantDb.detail_properties.insertMany([
                   {
                     "elements": [
                       {
-                        "value": "$data#/coordinaten/breedteGraad",
+                        "value": "$data#$.coordinaten.breedteGraad",
                         "type": "label"
                       }
                     ]
@@ -448,7 +448,7 @@ tenantDb.detail_properties.insertMany([
                   {
                     "elements": [
                       {
-                        "value": "$data#/coordinaten/lengteGraad",
+                        "value": "$data#$.coordinaten.lengteGraad",
                         "type": "label"
                       }
                     ]
@@ -477,7 +477,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/persoonsNaam",
+                    "value": "$data#$.persoonsNaam",
                     "type": "label"
                   }
                 ]
@@ -487,7 +487,7 @@ tenantDb.detail_properties.insertMany([
                   {
                     "elements": [
                       {
-                        "value": "$data#/geboorteJaar",
+                        "value": "$data#$.geboorteJaar",
                         "type": "label"
                       }
                     ]
@@ -495,7 +495,7 @@ tenantDb.detail_properties.insertMany([
                   {
                     "elements": [
                       {
-                        "value": "$data#/sterfJaar",
+                        "value": "$data#$.sterfJaar",
                         "type": "label"
                       }
                     ]
@@ -505,7 +505,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/bioPortaal",
+                    "value": "$data#$.bioPortaal",
                     "type": "label"
                   }
                 ]
@@ -515,7 +515,7 @@ tenantDb.detail_properties.insertMany([
                   {
                     "elements": [
                       {
-                        "value": "$data#/eersteBeroep",
+                        "value": "$data#$.eersteBeroep",
                         "type": "label"
                       }
                     ]
@@ -523,7 +523,7 @@ tenantDb.detail_properties.insertMany([
                   {
                     "elements": [
                       {
-                        "value": "$data#/eersteBeroepOpmerking",
+                        "value": "$data#$.eersteBeroepOpmerking",
                         "type": "label"
                       }
                     ]
@@ -533,7 +533,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/tweedeBeroep",
+                    "value": "$data#$.tweedeBeroep",
                     "type": "label"
                   }
                 ]
@@ -541,7 +541,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/derdeBeroep",
+                    "value": "$data#$.derdeBeroep",
                     "type": "label"
                   }
                 ]
@@ -568,7 +568,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/uitgever",
+                    "value": "$data#$.uitgever",
                     "type": "label"
                   }
                 ]
@@ -576,7 +576,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/eersteGeneratieNaam",
+                    "value": "$data#$.eersteGeneratieNaam",
                     "type": "link",
                     "config": {
                       "url": "/politieke-tijdschriften-personen/details/$eersteGeneratieId"
@@ -587,7 +587,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/tweedeGeneratieNaam",
+                    "value": "$data#$.tweedeGeneratieNaam",
                     "type": "link",
                     "config": {
                       "url": "/politieke-tijdschriften-personen/details/$tweedeGeneratieId"
@@ -598,7 +598,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/derdeGeneratieNaam",
+                    "value": "$data#$.derdeGeneratieNaam",
                     "type": "link",
                     "config": {
                       "url": "/politieke-tijdschriften-personen/details/$derdeGeneratieId"
@@ -609,7 +609,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/politiekSignatuur",
+                    "value": "$data#$.politiekSignatuur",
                     "type": "label"
                   }
                 ]
@@ -617,7 +617,7 @@ tenantDb.detail_properties.insertMany([
               {
                 "elements": [
                   {
-                    "value": "$data#/bestaan",
+                    "value": "$data#$.bestaan",
                     "type": "label"
                   }
                 ]
