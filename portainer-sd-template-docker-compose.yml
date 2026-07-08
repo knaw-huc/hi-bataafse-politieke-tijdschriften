@@ -81,7 +81,6 @@ services:
 
   bpt-indexer:
     image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.2
-    command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
     environment:
       - ES_HOST=bpt-elastic
       - ES_PORT=9200

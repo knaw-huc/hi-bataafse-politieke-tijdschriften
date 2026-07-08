@@ -85,8 +85,8 @@ services:
         condition: service_healthy
     networks:
       - hi-bpt-net
-    stdin_open: true
-    tty: true
+    #stdin_open: true
+    #tty: true
 
 volumes:
   hi-bpt-es-data:
