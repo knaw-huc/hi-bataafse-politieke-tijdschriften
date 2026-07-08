@@ -91,6 +91,8 @@ services:
     restart: no
     networks:
       - pol-tijdschriften
+    stdin_open: true
+    tty: true
 
 volumes:
   es-data:

@@ -18,7 +18,7 @@ services:
       - hi-bpt-net
 
   hi-bpt-elastic:
-    image: docker.elastic.co/elasticsearch/elasticsearch:9.4.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.2
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
@@ -85,6 +85,8 @@ services:
         condition: service_healthy
     networks:
       - hi-bpt-net
+    stdin_open: true
+    tty: true
 
 volumes:
   hi-bpt-es-data:
