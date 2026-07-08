@@ -259,13 +259,7 @@ path = "jmes:Digitaal_exemplaar"
 type = "text"
 
 [index.facet.linkNaarSaakes]
-path = """
-jmes:[
-    Link_naar_Saakes_1,
-    Link_naar_Saakes_2,
-    Link_naar_Saakes_3
-]
-"""
+path = "jmes:[ Link_naar_Saakes_1, Link_naar_Saakes_2, Link_naar_Saakes_3 ] | [?@]"
 type = "text"
 
 [index.facet.STCN]
@@ -277,12 +271,5 @@ path = "jmes:ENT"
 type = "text"
 
 [index.facet.secundaireLiteratuur]
-path = """
-jmes:[
-    Seclit1_titel,
-    Seclit2_titel,
-    Seclit3_titel,
-    Seclit4_titel
-]
-"""
+path = "jmes:[Seclit1_titel, Seclit2_titel, Seclit3_titel, Seclit4_titel] | [?@]"
 type = "text"

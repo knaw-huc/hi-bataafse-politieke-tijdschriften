@@ -392,7 +392,7 @@ tenantDb.detail_properties.insertMany([
           "elements": [
             {
               "value": "$data#$.secundaireLiteratuur",
-              "type": "list"
+              "type": "secondary-literature"
             }
           ]
         }
