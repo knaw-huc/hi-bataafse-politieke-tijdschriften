@@ -59,7 +59,7 @@ services:
       - traefik-public
 
   bpt-panoptes-browser:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.2
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.3
     environment:
       - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl
       - VITE_PANOPTES_IS_EMBEDDED=false
