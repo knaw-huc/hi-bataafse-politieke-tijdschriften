@@ -59,7 +59,7 @@ services:
       - traefik-public
 
   bpt-panoptes-browser:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.4
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.5
     environment:
       - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.dev.diginfra.org
       - VITE_PANOPTES_IS_EMBEDDED=false
@@ -80,7 +80,7 @@ services:
       - traefik-public
 
   bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:latest
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.3
     command: ["data/Database-Bataafse-Politieke-Tijdschriften-V3.xlsx", "ALL"]
     environment:
       - ES_HOST=bpt-elastic
