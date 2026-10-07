@@ -60,7 +60,7 @@ services:
       - hi-bpt-net
 
   hi-bpt-panoptes-browser:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.6
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.7
     environment:
       - VITE_PANOPTES_URL=http://localhost:8000
       - VITE_PANOPTES_IS_EMBEDDED=false
