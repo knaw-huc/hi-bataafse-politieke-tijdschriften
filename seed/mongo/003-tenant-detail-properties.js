@@ -467,3 +467,231 @@ tenantDb.detail_properties.insertMany([
       }
     }
 ]);
+tenantDb.detail_properties.deleteMany({ dataset_name: `${DATASET_NAME}-plaatsnaam` });
+tenantDb.detail_properties.insertMany([
+    { dataset_name: `${DATASET_NAME}-plaatsnaam`, name: "plaats", type: "screen", path: "$", order: 1, config: {
+      "id": "plaats-detail",
+      "screenType": "normal",
+      "globals": {
+      },
+      "form": {
+        "rows": [
+          {
+            "displayType": "group",
+            "groupId": "plaats",
+            "rows": [
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.plaatsnaam",
+                    "type": "label"
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": {
+                      "latitude": "$data#$.coordinaten.breedteGraad",
+                      "longitude": "$data#$.coordinaten.lengteGraad"
+                    },
+                    "type": "map",
+                    "config": {
+                      "zoom": 6
+                    }
+                  }
+                ]
+              },
+              {
+                "columns": [
+                  {
+                    "elements": [
+                      {
+                        "value": "$data#$.coordinaten.breedteGraad",
+                        "type": "label"
+                      }
+                    ]
+                  },
+                  {
+                    "elements": [
+                      {
+                        "value": "$data#$.coordinaten.lengteGraad",
+                        "type": "label"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }}
+]);
+tenantDb.detail_properties.deleteMany({ dataset_name: `${DATASET_NAME}-personen` });
+tenantDb.detail_properties.insertMany([
+    { dataset_name: `${DATASET_NAME}-personen`, name: "persoon", type: "screen", path: "$", order: 1, config: {
+      "id": "personen-detail",
+      "screenType": "normal",
+      "globals": {
+      },
+      "form": {
+        "rows": [
+          {
+            "displayType": "group",
+            "groupId": "persoon",
+            "rows": [
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.persoonsNaam",
+                    "type": "label"
+                  }
+                ]
+              },
+              {
+                "columns": [
+                  {
+                    "elements": [
+                      {
+                        "value": "$data#$.geboorteJaar",
+                        "type": "label"
+                      }
+                    ]
+                  },
+                  {
+                    "elements": [
+                      {
+                        "value": "$data#$.sterfJaar",
+                        "type": "label"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.bioPortaal",
+                    "type": "label"
+                  }
+                ]
+              },
+              {
+                "columns": [
+                  {
+                    "elements": [
+                      {
+                        "value": "$data#$.eersteBeroep",
+                        "type": "label"
+                      }
+                    ]
+                  },
+                  {
+                    "elements": [
+                      {
+                        "value": "$data#$.eersteBeroepOpmerking",
+                        "type": "label"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.tweedeBeroep",
+                    "type": "label"
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.derdeBeroep",
+                    "type": "label"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+  }}
+]);
+tenantDb.detail_properties.deleteMany({ dataset_name: `${DATASET_NAME}-uitgever_drukker` });
+tenantDb.detail_properties.insertMany([
+    { dataset_name: `${DATASET_NAME}-uitgever_drukker`, name: "uitgever_drukker", type: "screen", path: "$", order: 1, config: {
+      "id": "uitgever-drukker-detail",
+      "screenType": "normal",
+      "globals": {
+      },
+      "form": {
+        "rows": [
+          {
+            "displayType": "group",
+            "groupId": "uitgever-drukker",
+            "rows": [
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.uitgever",
+                    "type": "label"
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.eersteGeneratieNaam",
+                    "type": "link",
+                    "config": {
+                      "url": "/politieke-tijdschriften-personen/details/$eersteGeneratieId"
+                    }
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.tweedeGeneratieNaam",
+                    "type": "link",
+                    "config": {
+                      "url": "/politieke-tijdschriften-personen/details/$tweedeGeneratieId"
+                    }
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.derdeGeneratieNaam",
+                    "type": "link",
+                    "config": {
+                      "url": "/politieke-tijdschriften-personen/details/$derdeGeneratieId"
+                    }
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.politiekSignatuur",
+                    "type": "label"
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.bestaan",
+                    "type": "label"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }}
+]);
