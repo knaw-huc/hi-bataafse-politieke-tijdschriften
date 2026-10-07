@@ -1,7 +1,7 @@
 services:
 
   hi-bpt-mongo:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.5
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.6
     ports:
       - '27017:27017'
     expose:
@@ -76,7 +76,7 @@ services:
       - hi-bpt-net
 
   hi-bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.5
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.6
     environment:
       - ES_HOST=hi-bpt-elastic
       - ES_PORT=9200

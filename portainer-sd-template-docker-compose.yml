@@ -1,6 +1,6 @@
 services:
   bpt-mongo:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.5
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.6
     volumes:
       - mongo-data:/data/db
     healthcheck:
@@ -80,7 +80,7 @@ services:
       - traefik-public
 
   bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.5
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.6
     environment:
       - ES_HOST=bpt-elastic
       - ES_PORT=9200

@@ -217,7 +217,7 @@ type = "keyword"
 
 [index.facet.auteurs-redacteurs]
 path = "jmes:[ Auteur_Redacteur1.Naam, Auteur_Redacteur2.Naam, Auteur_Redacteur3.Naam, Auteur_Redacteur4.Naam, Auteur_Redacteur5.Naam ] | [?@]"
-type = "text"
+type = "keyword"
 
 [index.facet.toelichtingRedacteurAuteur]
 path = "jmes:\"Toelichting_redacteur-auteur\""
@@ -292,9 +292,10 @@ path = "jmes:[ STCN ] | [?@]"
 type = "text"
 
 [index.facet.ENT]
-path = "jmes:ENT"
+path = "jmes:[ ENT ] | [?@]"
 type = "text"
 
 [index.facet.secundaireLiteratuur]
 path = "jmes:[Seclit1_titel, Seclit2_titel, Seclit3_titel, Seclit4_titel] | [?@]"
 type = "text"
+

@@ -448,7 +448,7 @@ tenantDb.detail_properties.insertMany([
               "elements": [
                 {
                   "value": "$data#$.ENT",
-                  "type": "external-link"
+                  "type": "markdown-list"
                 }
               ]
             },
