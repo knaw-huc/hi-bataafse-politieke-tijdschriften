@@ -11,7 +11,6 @@ tenantDb.facets.deleteMany({ dataset_name: DATASET_NAME });
      { dataset_name: DATASET_NAME, name: "Jaar laatste nummer", property: "laatsteNummerJaar", type: "range", order: 2 },
      { dataset_name: DATASET_NAME, name: "Uitgever", property: "uitgever", type: "text", order: 3 },
      { dataset_name: DATASET_NAME, name: "Plaats van uitgave", property: "plaatsVanUitgave", type: "text", order: 4 },
-     { dataset_name: DATASET_NAME, name: "Afleveringen", property: "afleveringen", type: "text", order: 5 },
      { dataset_name: DATASET_NAME, name: "Vorm tijdschrift", property: "vormTijdschrift", type: "text", order: 6 },
      { dataset_name: DATASET_NAME, name: "Type tijdschrift", property: "typeTijdschrift", type: "text", order: 7 },
      { dataset_name: DATASET_NAME, name: "Type artikel", property: "artikelType", type: "text", order: 8 },

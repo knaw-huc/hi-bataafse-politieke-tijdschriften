@@ -17,9 +17,25 @@ type = "keyword"
 path = "jmes:Uitgever.rowId"
 type = "keyword"
 
+[index.facet.uitgever]
+path = "jmes:Uitgever.Uitgeverij"
+type = "keyword"
+
 [index.facet.uitgeverZeker]
 path = "jmes:\"Uitgever-z\""
 type = "boolean"
+
+[index.facet.uitgever2Id]
+path = "jmes:Uitgever2.rowId"
+type = "keyword"
+
+[index.facet.uitgever2]
+path = "jmes:Uitgever2.Uitgeverij"
+type = "keyword"
+
+[index.facet.uitgeverVanaf]
+path = "jmes:Uitgever_vanaf"
+type = "text"
 
 [index.facet.plaatsId]
 path = "jmes:Plaats1.rowId"
@@ -27,6 +43,22 @@ type = "keyword"
 
 [index.facet.plaats]
 path = "jmes:Plaats1.Name"
+type = "keyword"
+
+[index.facet.plaats2Id]
+path = "jmes:Plaats2.rowId"
+type = "keyword"
+
+[index.facet.plaats2]
+path = "jmes:Plaats2.Name"
+type = "keyword"
+
+[index.facet.plaats3Id]
+path = "jmes:Plaats3.rowId"
+type = "keyword"
+
+[index.facet.plaats3]
+path = "jmes:Plaats3.Name"
 type = "keyword"
 
 [index.facet.titel]
@@ -41,17 +73,26 @@ type = "number"
 path = "jmes:Plaats1.Longitude"
 type = "number"
 
-[index.facet.uitgever]
-path = "jmes:Uitgever.Uitgeverij"
-type = "keyword"
+[index.facet.plaats2Breedtegraad]
+path = "jmes:Plaats2.Latitude"
+type = "number"
+
+[index.facet.plaats2Lengtegraad]
+path = "jmes:Plaats2.Longitude"
+type = "number"
+
+[index.facet.plaats3Breedtegraad]
+path = "jmes:Plaats3.Latitude"
+type = "number"
+
+[index.facet.plaats3Lengtegraad]
+path = "jmes:Plaats3.Longitude"
+type = "number"
+
 
 [index.facet.plaatsVanUitgave]
 path = "jmes:Uitgever.Plaats1.Name"
 type = "keyword"
-
-[index.facet.uitgeverVanaf]
-path = "jmes:Uitgever_vanaf"
-type = "text"
 
 [index.facet.drukker]
 path = "jmes:Drukker.Uitgeverij"
@@ -109,14 +150,6 @@ type = "text"
 [index.facet.frequentie]
 path = "jmes:Frequentie"
 type = "keyword"
-
-[index.facet.eersteNummer]
-path = "jmes:Eerste_nr_EDTF"
-type = "text"
-
-[index.facet.laatsteNummer]
-path = "jmes:Laatste_nr_EDTF"
-type = "text"
 
 [index.facet.eersteNummerJaar]
 path = "jmes:Eerste_nr_JAAR"
@@ -183,18 +216,10 @@ path = "jmes:artikelType"
 type = "keyword"
 
 [index.facet.auteurs-redacteurs]
-path = """
-jmes:[
-    { id: \"Auteur-Redacteur1.rowId\", naam: \"Auteur-Redacteur1.Naam\" },
-    { id: \"Auteur-Redacteur2.rowId\", naam: \"Auteur-Redacteur2.Naam\" },
-    { id: \"Auteur-Redacteur3.rowId\", naam: \"Auteur-Redacteur3.Naam\" },
-    { id: \"Auteur-Redacteur4.rowId\", naam: \"Auteur-Redacteur4.Naam\" },
-    { id: \"Auteur-Redacteur5.rowId\", naam: \"Auteur-Redacteur5.Naam\" }
-]
-"""
-type = "nested"
+path = "jmes:[ Auteur_Redacteur1.Naam, Auteur_Redacteur2.Naam, Auteur_Redacteur3.Naam, Auteur_Redacteur4.Naam, Auteur_Redacteur5.Naam ] | [?@]"
+type = "text"
 
-[index.facet.toelichtingRedacteur-Auteur]
+[index.facet.toelichtingRedacteurAuteur]
 path = "jmes:\"Toelichting_redacteur-auteur\""
 type = "text"
 

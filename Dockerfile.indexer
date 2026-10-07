@@ -12,4 +12,4 @@ COPY indexer-*.toml ./
 COPY data/ ./data/
 
 ENTRYPOINT ["poetry", "run", "python", "read_and_index.py"]
-CMD ["data/Database-Bataafse-Politieke-Tijdschriften-V4.xlsx"]
+CMD ["data/Database-Bataafse-Politieke-Tijdschriften_DEF_okt2026.xlsx"]
