@@ -288,7 +288,7 @@ path = "jmes:[ Link_naar_Saakes_1, Link_naar_Saakes_2, Link_naar_Saakes_3 ] | [?
 type = "text"
 
 [index.facet.STCN]
-path = "jmes:STCN"
+path = "jmes:[ STCN ] | [?@]"
 type = "text"
 
 [index.facet.ENT]

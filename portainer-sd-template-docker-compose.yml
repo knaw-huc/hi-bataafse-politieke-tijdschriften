@@ -1,6 +1,6 @@
 services:
   bpt-mongo:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.4
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.5
     volumes:
       - mongo-data:/data/db
     healthcheck:
@@ -59,7 +59,7 @@ services:
       - traefik-public
 
   bpt-panoptes-browser:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.7
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.8
     environment:
       - VITE_PANOPTES_URL=https://bataafse-politieke-tijdschriften.sd.di.huc.knaw.nl
       - VITE_PANOPTES_IS_EMBEDDED=false
@@ -80,7 +80,7 @@ services:
       - traefik-public
 
   bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.4
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.5
     environment:
       - ES_HOST=bpt-elastic
       - ES_PORT=9200

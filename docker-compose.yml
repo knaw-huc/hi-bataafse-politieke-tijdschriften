@@ -1,7 +1,7 @@
 services:
 
   hi-bpt-mongo:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.4
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.5
     ports:
       - '27017:27017'
     expose:
@@ -60,7 +60,7 @@ services:
       - hi-bpt-net
 
   hi-bpt-panoptes-browser:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.7
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-browser:0.0.8
     environment:
       - VITE_PANOPTES_URL=http://localhost:8000
       - VITE_PANOPTES_IS_EMBEDDED=false
@@ -76,7 +76,7 @@ services:
       - hi-bpt-net
 
   hi-bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.4
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.5
     environment:
       - ES_HOST=hi-bpt-elastic
       - ES_PORT=9200

@@ -358,7 +358,7 @@ tenantDb.detail_properties.insertMany([
                 },
                 {
                   "value": "$data#$.duidingTitel",
-                  "type": "label"
+                  "type": "markdown"
                 },
                 {
                   "value": "$data#$.advertenties_en_andere_verwijsplaatsen",
@@ -418,7 +418,7 @@ tenantDb.detail_properties.insertMany([
               "elements": [
                 {
                   "value": "$data#$.artikelType",
-                  "type": "secondary-literature"
+                  "type": "markdown-list"
                 }
               ]
             },
@@ -428,7 +428,7 @@ tenantDb.detail_properties.insertMany([
               "elements": [
                 {
                   "value": "$data#$.linkNaarSaakes",
-                  "type": "secondary-literature"
+                  "type": "markdown-list"
                 }
               ]
             },
@@ -438,7 +438,7 @@ tenantDb.detail_properties.insertMany([
               "elements": [
                 {
                   "value": "$data#$.STCN",
-                  "type": "external-link"
+                  "type": "markdown-list"
                 }
               ]
             },
@@ -458,7 +458,7 @@ tenantDb.detail_properties.insertMany([
               "elements": [
                 {
                   "value": "$data#$.secundaireLiteratuur",
-                  "type": "secondary-literature"
+                  "type": "markdown-list"
                 }
               ]
             }
