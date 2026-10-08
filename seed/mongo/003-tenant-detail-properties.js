@@ -58,7 +58,7 @@ tenantDb.detail_properties.insertMany([
                     {
                       "elements": [
                         {
-                          "value": "$data#$.eersteNummer",
+                          "value": "$data#$.eersteNummerJaar",
                           "type": "label"
                         }
                       ]
@@ -66,7 +66,7 @@ tenantDb.detail_properties.insertMany([
                     {
                       "elements": [
                         {
-                          "value": "$data#$.laatsteNummer",
+                          "value": "$data#$.laatsteNummerJaar",
                           "type": "label"
                         }
                       ]

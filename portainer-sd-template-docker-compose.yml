@@ -1,6 +1,6 @@
 services:
   bpt-mongo:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.6
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-mongo:0.0.7
     volumes:
       - mongo-data:/data/db
     healthcheck:
