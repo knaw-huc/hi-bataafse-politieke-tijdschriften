@@ -30,6 +30,14 @@ type="text"
 path="jmes:Bioportaal"
 type="text"
 
+[index.facet.wikidataId]
+path="jmes:Wikidata_ID"
+type="text"
+
+[index.facet.viaf]
+path="jmes:Viaf"
+type="text"
+
 [index.facet.politiekePositie]
 path="jmes:Politieke_positie"
 type="text"
@@ -40,7 +48,7 @@ type="text"
 
 [index.facet.eersteBeroepOpmerking]
 path="jmes:Beroep_1_opmerking"
-type="keyword"
+type="text"
 
 [index.facet.tweedeBeroep]
 path="jmes:Beroep_2"

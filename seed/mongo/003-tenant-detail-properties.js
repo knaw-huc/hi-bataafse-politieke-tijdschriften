@@ -159,16 +159,6 @@ tenantDb.detail_properties.insertMany([
                           "config": {
                             "url": "/politieke-tijdschriften/search?plaatsVanUitgave=$plaats"
                           }
-                        },
-                        {
-                          "value": {
-                            "latitude": "$data#$.plaatsBreedtegraad",
-                            "longitude": "$data#$.plaatsLengtegraad"
-                          },
-                          "type": "map",
-                          "config": {
-                            "zoom": new NumberInt("8")
-                          }
                         }
                       ]
                     },
@@ -180,16 +170,6 @@ tenantDb.detail_properties.insertMany([
                           "config": {
                             "url": "/politieke-tijdschriften/search?plaatsVanUitgave=$plaats2"
                           }
-                        },
-                        {
-                          "value": {
-                            "latitude": "$data#$.plaats2Breedtegraad",
-                            "longitude": "$data#$.plaats2Lengtegraad"
-                          },
-                          "type": "map",
-                          "config": {
-                            "zoom": new NumberInt("8")
-                          }
                         }
                       ]
                     },
@@ -200,16 +180,6 @@ tenantDb.detail_properties.insertMany([
                           "type": "search-link",
                           "config": {
                             "url": "/politieke-tijdschriften/search?plaatsVanUitgave=$plaats3"
-                          }
-                        },
-                        {
-                          "value": {
-                            "latitude": "$data#$.plaats3Breedtegraad",
-                            "longitude": "$data#$.plaats3Lengtegraad"
-                          },
-                          "type": "map",
-                          "config": {
-                            "zoom": new NumberInt("8")
                           }
                         }
                       ]
@@ -573,7 +543,23 @@ tenantDb.detail_properties.insertMany([
                 "elements": [
                   {
                     "value": "$data#$.bioPortaal",
-                    "type": "label"
+                    "type": "markdown"
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.wikidataId",
+                    "type": "markdown"
+                  }
+                ]
+              },
+              {
+                "elements": [
+                  {
+                    "value": "$data#$.viaf",
+                    "type": "markdown"
                   }
                 ]
               },

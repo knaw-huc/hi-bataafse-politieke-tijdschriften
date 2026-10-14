@@ -177,6 +177,23 @@ def convert_vorm_booleans(row: Dict[str, Any]) -> None:
     for k in VORM_BOOL_KEYS:
         row.pop(k, None)
 
+
+def add_jaren_in_omloop(row: Dict[str, Any]) -> None:
+    """
+    Adds:
+      row["jarenInOmloop"] = [every year from the first to the last known issue]
+    so a range filter on it matches the titles in circulation during that range.
+    Without a last year only the first year; without a first year an empty list.
+    """
+    first = row.get("Eerste_nr_JAAR")
+    if first is None:
+        row["jarenInOmloop"] = []
+        return
+    last = row.get("Laatste_nr_JAAR")
+    first = int(first)
+    last = int(last) if last is not None else first
+    row["jarenInOmloop"] = list(range(min(first, last), max(first, last) + 1))
+
 # ------------------------------ In-memory stores --------------------------------
 # Processed rows, by sheet (already-expanded, sanitized per row at write time).
 _PROCESSED_SHEETS: Dict[str, List[Dict[str, Any]]] = {}
@@ -368,6 +385,7 @@ def excel_sheet_to_json(
     if VORM_SHEETS is None or main_sheet in VORM_SHEETS:
         for row in records:
             convert_vorm_booleans(row)
+            add_jaren_in_omloop(row)
 
     # Keep processed (pre-sanitize) records in memory for downstream sheets
     _PROCESSED_SHEETS[main_sheet] = [dict(r) for r in records]

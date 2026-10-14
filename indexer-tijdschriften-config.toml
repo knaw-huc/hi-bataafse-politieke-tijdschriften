@@ -21,9 +21,19 @@ type = "keyword"
 path = "jmes:Uitgever.Uitgeverij"
 type = "keyword"
 
-[index.facet.uitgeverZeker]
-path = "jmes:\"Uitgever-z\""
-type = "boolean"
+[index.facet.personen]
+path = """
+jmes:[
+    Auteur_Redacteur1.Naam,
+    Auteur_Redacteur2.Naam,
+    Auteur_Redacteur3.Naam,
+    Auteur_Redacteur4.Naam,
+    Auteur_Redacteur5.Naam,
+    Uitgever.Eerste_Generatie.Naam,
+    Uitgever.Tweede_generatie.Naam
+] | [?@]
+"""
+type = "keyword"
 
 [index.facet.uitgever2Id]
 path = "jmes:Uitgever2.rowId"
@@ -157,6 +167,10 @@ type = "number"
 
 [index.facet.laatsteNummerJaar]
 path = "jmes:Laatste_nr_JAAR"
+type = "number"
+
+[index.facet.jarenInOmloop]
+path = "jmes:jarenInOmloop"
 type = "number"
 
 [index.facet.prijsDuiten]
@@ -298,4 +312,6 @@ type = "text"
 [index.facet.secundaireLiteratuur]
 path = "jmes:[Seclit1_titel, Seclit2_titel, Seclit3_titel, Seclit4_titel] | [?@]"
 type = "text"
+
+
 
