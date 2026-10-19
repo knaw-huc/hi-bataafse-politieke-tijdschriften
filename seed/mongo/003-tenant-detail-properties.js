@@ -35,7 +35,7 @@ tenantDb.detail_properties.insertMany([
                   "elements": [
                     {
                       "value": "$data#$.onderTitel",
-                      "type": "label"
+                      "type": "markdown"
                     }
                   ]
                 },
@@ -226,7 +226,7 @@ tenantDb.detail_properties.insertMany([
                   "elements": [
                     {
                       "value": "$data#$.bewaarplaats",
-                      "type": "label"
+                      "type": "markdown"
                     }
                   ]
                 },
@@ -313,18 +313,15 @@ tenantDb.detail_properties.insertMany([
               "elements": [
                 {
                   "value": "$data#$.korteOmschrijvingInhoud",
-                  "type": "markdown",
-                  "config": {}
+                  "type": "markdown"
                 },
                 {
                   "value": "$data#$.verantwoordingSelectie",
-                  "type": "markdown",
-                  "config": {}
+                  "type": "markdown"
                 },
                 {
                   "value": "$data#$.toelichtingRedacteurAuteur",
-                  "type": "markdown",
-                  "config": {}
+                  "type": "markdown"
                 },
                 {
                   "value": "$data#$.duidingTitel",
