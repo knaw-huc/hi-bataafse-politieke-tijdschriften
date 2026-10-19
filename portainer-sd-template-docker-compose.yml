@@ -80,7 +80,7 @@ services:
       - traefik-public
 
   bpt-indexer:
-    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.7
+    image: registry.diginfra.net/tsd/hi-bataafse-politieke-tijdschriften-indexer:0.0.8
     environment:
       - ES_HOST=bpt-elastic
       - ES_PORT=9200
