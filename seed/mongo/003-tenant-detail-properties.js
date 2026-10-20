@@ -333,7 +333,7 @@ tenantDb.detail_properties.insertMany([
                 },
                 {
                   "value": "$data#$.opmaak_en_spelling",
-                  "type": "label"
+                  "type": "markdown"
                 },
                 {
                   "value": "$data#$.apparaat_Hanou",
